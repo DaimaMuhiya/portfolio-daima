@@ -29,8 +29,8 @@ export default function HeroSection() {
         <div className="relative">
           <div className="w-[500px] h-[500px] bg-gradient-to-br from-gray-600 to-gray-800 rounded-[32px] relative overflow-hidden">
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=500&fit=crop&crop=face"
-              alt="John's Profile"
+              src="/daima.jpg"
+              alt="daima muhiya"
               className="w-full h-full object-cover"
             />
           </div>
