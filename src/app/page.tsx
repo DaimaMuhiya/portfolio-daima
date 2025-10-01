@@ -9,6 +9,8 @@ import CooperationSection from "@/components/cooperation-section";
 import ServicesSection from "@/components/services-section";
 import ExperienceSection from "@/components/experience-section";
 import EducationResearchSection from "@/components/education-research-section";
+import ProjectsSection from "@/components/projects-section";
+
 export default function App() {
   const [formData, setFormData] = useState({
     name: "",
@@ -136,6 +138,10 @@ CONTACT:
         <ServicesSection />
         <ExperienceSection onResumeDownload={handleResumeDownload} />
         <EducationResearchSection />
+        <ProjectsSection
+          onViewProject={handleViewProject}
+          onViewAllProjects={handleViewAllProjects}
+        />
       </main>
     </div>
   );
