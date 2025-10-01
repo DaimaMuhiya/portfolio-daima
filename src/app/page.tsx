@@ -3,7 +3,12 @@
 import type React from "react";
 import { useState } from "react";
 import Navbar from "@/components/navbar";
-
+import HeroSection from "@/components/hero-section";
+import StatsSection from "@/components/stats-section";
+import CooperationSection from "@/components/cooperation-section";
+import ServicesSection from "@/components/services-section";
+import ExperienceSection from "@/components/experience-section";
+import EducationResearchSection from "@/components/education-research-section";
 export default function App() {
   const [formData, setFormData] = useState({
     name: "",
@@ -124,6 +129,14 @@ CONTACT:
         onScrollToSection={scrollToSection}
         onResumeDownload={handleResumeDownload}
       />
+      <main className="pt-24 pb-20">
+        <HeroSection />
+        <StatsSection />
+        <CooperationSection />
+        <ServicesSection />
+        <ExperienceSection onResumeDownload={handleResumeDownload} />
+        <EducationResearchSection />
+      </main>
     </div>
   );
 }
