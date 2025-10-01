@@ -79,7 +79,7 @@ export default function ContactForm({
                   onChange={onInputChange}
                   required
                   className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1F2A37] rounded-lg text-white font-mono placeholder-[#6B7280] focus:border-[#057A55] focus:outline-none transition-colors"
-                  placeholder="votre.email@exemple.com"
+                  placeholder="email@exemple.com"
                 />
               </div>
             </div>

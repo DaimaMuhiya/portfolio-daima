@@ -12,8 +12,9 @@ import EducationResearchSection from "@/components/education-research-section";
 import ProjectsSection from "@/components/projects-section";
 import SkillsSection from "@/components/skills-section";
 import ContactForm from "@/components/contact-form";
+import Footer from "@/components/footer";
 
-export default function App() {
+export default function Home() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,7 +61,7 @@ export default function App() {
   const handleResumeDownload = () => {
     // Create a mock PDF download
     const resumeContent = `
-John Smith - Senior Full Stack Web & App Developer
+Daima MUHIYA - Senior Software Development Engeneer
 
 EXPERIENCE:
 • Google (2017-Present) - Senior Software Engineer
@@ -81,9 +82,9 @@ SKILLS:
 • Technologies: Python, TensorFlow, Angular, Kubernetes, GCP
 
 CONTACT:
-• Email: johndev@gmail.com
-• Phone: +1-6-379-925
-• Skype: john.dev
+• Email: muhiyabenjamin@gmail.com
+• Phone: +243-995-825-417
+• Skype: daima.muhiya
     `;
 
     // Create and download the file
@@ -93,7 +94,7 @@ CONTACT:
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "John_Smith_Resume.pdf";
+    link.download = "Daima_MUHIYA_cv.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -153,6 +154,7 @@ CONTACT:
           onSubmit={handleSubmit}
         />
       </main>
+      <Footer onScrollToSection={scrollToSection} />
     </div>
   );
 }
