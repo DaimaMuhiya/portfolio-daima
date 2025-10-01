@@ -64,7 +64,7 @@ export default function CooperationSection() {
           <div className="mb-8">
             <span className="text-[#057A55] font-mono">Cooperation</span>
             <h3 className="text-2xl font-medium text-white mt-1 font-mono">
-              Ils m'ont fait confiance_
+              Ils m&apos;ont fait confiance_
             </h3>
           </div>
           <div className="bg-[#121212] border border-[#1F2228] rounded-xl p-6 grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
@@ -88,7 +88,9 @@ export default function CooperationSection() {
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <Phone className="w-6 h-6 text-[#6B7280]" />
-                <span className="text-white text-xs">&#123;téléphone&#125;</span>
+                <span className="text-white text-xs">
+                  &#123;téléphone&#125;
+                </span>
                 <span className="text-[#F98080] text-xs">+243 995 825 417</span>
               </div>
               <div className="flex items-center gap-2">

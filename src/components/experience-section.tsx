@@ -15,7 +15,7 @@ const achievements = [
   "Collaboration avec des équipes pluridisciplinaires pour intégrer des fonctionnalités de manière transparente.",
 ];
 
-const technologies = ["Python", "Tensorflow", "Angular", "Kubernotes"];
+// const technologies = ["Python", "Tensorflow", "Angular", "Kubernotes"];
 
 interface ExperienceSectionProps {
   onResumeDownload: () => void;

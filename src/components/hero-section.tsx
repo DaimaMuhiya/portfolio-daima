@@ -14,9 +14,9 @@ export default function HeroSection() {
               Développeur Web & Mobile &#123;Full Stack&#125;_
             </h1>
             <p className="text-[#F98080] text-base leading-relaxed font-mono">
-              &lt;p&gt; Fort d'une expertise dans les technologies de pointe, je
-              fournis des solutions web à la fois innovantes et robustes.
-              &lt;/p&gt;
+              &lt;p&gt; Fort d&apos;une expertise dans les technologies de
+              pointe, je fournis des solutions web à la fois innovantes et
+              robustes. &lt;/p&gt;
             </p>
           </div>
           <div className="flex items-center gap-3 mb-8">
