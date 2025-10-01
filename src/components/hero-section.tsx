@@ -29,7 +29,7 @@ export default function HeroSection() {
         <div className="relative">
           <div className="w-[500px] h-[500px] bg-gradient-to-br from-gray-600 to-gray-800 rounded-[32px] relative overflow-hidden">
             <ImageWithFallback
-              src="/daima.jpg"
+              src="/daima-m.jpg"
               alt="daima muhiya"
               className="w-full h-full object-cover"
             />

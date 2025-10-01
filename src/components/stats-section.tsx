@@ -1,9 +1,10 @@
-import { Calendar, Monitor, Smile } from "lucide-react";
+import { Calendar, Monitor, Smile, Award } from "lucide-react";
 
 const stats = [
   { icon: Calendar, value: "5", label: "Années d'expérience" },
   { icon: Monitor, value: "26", label: "Projets réalisés" },
   { icon: Smile, value: "10", label: "Clients satisfaits" },
+  { icon: Award, value: "2", label: "Certifications" },
 ];
 
 export default function StatsSection() {
