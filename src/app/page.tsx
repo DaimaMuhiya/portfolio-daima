@@ -10,6 +10,7 @@ import ServicesSection from "@/components/services-section";
 import ExperienceSection from "@/components/experience-section";
 import EducationResearchSection from "@/components/education-research-section";
 import ProjectsSection from "@/components/projects-section";
+import SkillsSection from "@/components/skills-section";
 
 export default function App() {
   const [formData, setFormData] = useState({
@@ -142,6 +143,7 @@ CONTACT:
           onViewProject={handleViewProject}
           onViewAllProjects={handleViewAllProjects}
         />
+        <SkillsSection />
       </main>
     </div>
   );
