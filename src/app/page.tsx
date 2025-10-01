@@ -11,6 +11,7 @@ import ExperienceSection from "@/components/experience-section";
 import EducationResearchSection from "@/components/education-research-section";
 import ProjectsSection from "@/components/projects-section";
 import SkillsSection from "@/components/skills-section";
+import ContactForm from "@/components/contact-form";
 
 export default function App() {
   const [formData, setFormData] = useState({
@@ -144,6 +145,13 @@ CONTACT:
           onViewAllProjects={handleViewAllProjects}
         />
         <SkillsSection />
+        <ContactForm
+          formData={formData}
+          isSubmitting={isSubmitting}
+          submitStatus={submitStatus}
+          onInputChange={handleInputChange}
+          onSubmit={handleSubmit}
+        />
       </main>
     </div>
   );
