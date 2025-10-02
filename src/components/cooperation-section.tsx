@@ -1,4 +1,5 @@
 import { Phone, Mail } from "lucide-react";
+import Image from "next/image";
 
 const companies = [
   { name: "Spotify", color: "#2DE26C" },
@@ -67,7 +68,7 @@ export default function CooperationSection() {
               Ils m&apos;ont fait confiance_
             </h3>
           </div>
-          <div className="bg-[#121212] border border-[#1F2228] rounded-xl p-6 grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
+          <div className="bg-[#121212] font-mono border border-[#1F2228] rounded-xl p-6 grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
             {companies.map((company) => (
               <div
                 key={company.name}
@@ -81,22 +82,31 @@ export default function CooperationSection() {
           <div className="mt-8 flex items-center gap-6">
             <div className="relative">
               <div className="w-[100px] h-[100px] rounded-full border border-[#2F343C] p-5 flex items-center justify-center">
-                <div className="w-15 h-15 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full"></div>
+                {/* <div className="w-15 h-15 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full"></div> */}
+                <Image
+                  src="/daima-m.jpg"
+                  alt="daima muhiya"
+                  width={100}
+                  height={100}
+                  className="rounded-full w-full h-full object-cover"
+                />
               </div>
               <div className="absolute bottom-2 right-2 w-[10px] h-[10px] bg-[#057A55] rounded-full"></div>
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2">
-                <Phone className="w-6 h-6 text-[#6B7280]" />
-                <span className="text-white text-xs">
+                <Phone className="w-6 h-6 text-[#6B7280] font-mono" />
+                {/* <span className="text-white text-xs">
                   &#123;téléphone&#125;
+                </span> */}
+                <span className="text-[#F98080] text-xs font-mono">
+                  +243 995 825 417
                 </span>
-                <span className="text-[#F98080] text-xs">+243 995 825 417</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-6 h-6 text-[#6B7280]" />
-                <span className="text-white text-xs">&#123;email&#125;</span>
-                <span className="text-[#F98080] text-xs">
+                <Mail className="w-6 h-6 text-[#6B7280] font-mono" />
+                {/* <span className="text-white text-xs">&#123;email&#125;</span> */}
+                <span className="text-[#F98080] text-xs font-mono">
                   muhiyabenjamin@gmail.com
                 </span>
               </div>
