@@ -18,8 +18,8 @@ export default function Footer({ onScrollToSection }: FooterProps) {
     <footer className="max-w-[1120px] mx-auto px-5 pb-10">
       <div className="rounded-xl p-5 flex flex-col items-center gap-6 relative">
         <div className="flex items-center gap-1">
-          <div className="w-8 h-8 bg-[#057A55] rounded flex items-center justify-center">
-            <Code2 className="w-5 h-5 text-white" />
+          <div className="w-8 h-8 rounded flex items-center justify-center">
+            <Code2 className="w-8 h-8 text-[#84E1BC]" />
           </div>
           <span className="text-2xl font-mono font-medium text-[#D7DFEE] ml-1">
             Daima MUHIYA

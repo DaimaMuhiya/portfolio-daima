@@ -30,7 +30,7 @@ export default function Navbar({
 
       <div className="flex items-center gap-1">
         <div className="w-8 h-8 rounded flex items-center justify-center">
-          <Code2 className="w-5 h-5 text-[#84E1BC]" />
+          <Code2 className="w-8 h-8 text-[#84E1BC]" />
         </div>
         <span className="text-2xl font-medium text-white ml-1">Daima</span>
       </div>
@@ -47,15 +47,15 @@ export default function Navbar({
             onClick={() => onScrollToSection("resume")}
             className="text-white hover:text-[#84E1BC] transition-colors"
           >
-            CV
+            Expérience
           </button>
-          <button
+          {/* <button
             onClick={onResumeDownload}
             className="p-1 text-white hover:text-[#84E1BC] transition-colors"
             title="Download Resume"
           >
             <Download className="w-4 h-4" />
-          </button>
+          </button> */}
         </div>
         <button
           onClick={() => onScrollToSection("contacts")}
