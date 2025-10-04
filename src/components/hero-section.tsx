@@ -8,7 +8,7 @@ export default function HeroSection() {
         <div className="relative">
           <div className="rounded-full w-[400px] h-[400px] bg-gradient-to-br from-gray-600 to-gray-800 rounded-[32px] relative overflow-hidden">
             <ImageWithFallback
-              src="/daima-m.jpg"
+              src="/daima_muhiya.png"
               alt="daima muhiya"
               className="rounded-full w-full h-full object-cover"
             />

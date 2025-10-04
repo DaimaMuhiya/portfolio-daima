@@ -84,7 +84,7 @@ export default function CooperationSection() {
               <div className="w-[100px] h-[100px] rounded-full border border-[#2F343C] p-4 flex items-center justify-center">
                 {/* <div className="w-15 h-15 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full"></div> */}
                 <Image
-                  src="/daima-m.jpg"
+                  src="/daima_m.png"
                   alt="daima muhiya"
                   width={100}
                   height={100}
