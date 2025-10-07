@@ -33,7 +33,10 @@ export default function HeroSection() {
           </div>
           <div className="flex items-center gap-3 mb-8">
             <div className="flex items-end gap-3">
-              <img src="/icons/css.png" alt="Javascript" className="w-6 h-6" />
+              <img src="/icons/AWS.svg" alt="AWS" className="w-14 h-14" />
+              <img src="/icons/Docker.svg" alt="Docker" className="w-14 h-14" />
+              <img src="/icons/Kubernetes.svg" alt="Kubernetes" className="w-14 h-14" />
+              <img src="/icons/Linux.svg" alt="Linux" className="w-14 h-14" />
             </div>
             <span className="text-[#6B7280] font-mono">... et plus encore</span>
           </div>
