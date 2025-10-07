@@ -154,7 +154,7 @@ CONTACT:
           onSubmit={handleSubmit}
         />
       </main>
-      <Footer onScrollToSection={scrollToSection} />
+      <Footer />
     </div>
   );
 }
