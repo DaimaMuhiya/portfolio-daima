@@ -8,12 +8,37 @@ import {
   Linkedin,
   Facebook,
 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
-interface FooterProps {
-  onScrollToSection: (sectionId: string) => void;
-}
+const MotionButton = motion(Button);
 
-export default function Footer({ onScrollToSection }: FooterProps) {
+export default function Footer() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      // Le bouton apparaît après avoir dépassé la hero section (~600px)
+      if (window.pageYOffset > 150) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  // Animation pour les boutons
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      transition: { duration: 0.2 },
+    },
+    tap: { scale: 0.95 },
+  };
+
   return (
     <footer className="max-w-[1120px] mx-auto px-5 pb-10">
       <div className="rounded-xl p-5 flex flex-col items-center gap-6 relative">
@@ -51,14 +76,21 @@ export default function Footer({ onScrollToSection }: FooterProps) {
             Contacts
           </button>
         </div> */}
-        <button
+      </div>
+
+      {/* Bouton de retour en haut - positionné en fixed */}
+      {isVisible && (
+        <MotionButton
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="absolute right-10 top-1/2 transform -translate-y-1/2 w-11 h-11 bg-[#111928] rounded-lg flex items-center justify-center hover:bg-[#057A55] transition-colors"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          className="fixed right-14 bottom-10 w-11 h-11 bg-[#111928] rounded-lg flex items-center justify-center hover:bg-[#057A55] transition-colors z-50"
           title="Retour en haut de la page"
         >
           <ArrowUp className="w-6 h-6 text-[#057A55] hover:text-white" />
-        </button>
-      </div>
+        </MotionButton>
+      )}
     </footer>
   );
 }
