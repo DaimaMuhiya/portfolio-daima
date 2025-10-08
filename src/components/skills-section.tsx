@@ -82,7 +82,7 @@ export default function SkillsSection() {
               {skillCategories.map((skill, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <div className="w-[6px] h-[6px] bg-[#C8D3E0] rounded-full"></div>
-                  <span className="text-[#1F2A37] font-mono">{skill}</span>
+                  <span className="text-[#C8D3E0] font-mono">{skill}</span>
                 </div>
               ))}
             </div>
