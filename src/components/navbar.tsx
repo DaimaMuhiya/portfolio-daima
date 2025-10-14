@@ -66,10 +66,38 @@ export default function Navbar({
       </div>
 
       <div className="flex items-center gap-6">
-        <Facebook className="w-6 h-6 text-white hover:text-[#84E1BC] cursor-pointer" />
-        <Instagram className="w-6 h-6 text-white hover:text-[#84E1BC] cursor-pointer" />
-        <Linkedin className="w-6 h-6 text-white hover:text-[#84E1BC] cursor-pointer" />
-        <Twitter className="w-6 h-6 text-white hover:text-[#84E1BC] cursor-pointer" />
+        <a
+          href="https://www.facebook.com/daima.muhiya"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Compte Facebook de Daima Muhiya"
+        >
+          <Facebook className="w-6 h-6 text-[#D7DFEE] hover:text-[#057A55] cursor-pointer" />
+        </a>
+        <a
+          href="https://www.instagram.com/daima_muhiya"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Compte Instagram de Daima Muhiya"
+        >
+          <Instagram className="w-6 h-6 text-[#D7DFEE] hover:text-[#057A55] cursor-pointer" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/daima-muhiya-3b179722b"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Compte LinkedIn de Daima Muhiya"
+        >
+          <Linkedin className="w-6 h-6 text-[#D7DFEE] hover:text-[#057A55] cursor-pointer" />
+        </a>
+        <a
+          href="https://x.com/Daima_Muhiya"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Compte Twitter de Daima Muhiya"
+        >
+          <Twitter className="w-6 h-6 text-[#D7DFEE] hover:text-[#057A55] cursor-pointer" />
+        </a>
       </div>
     </nav>
   );
