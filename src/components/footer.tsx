@@ -85,7 +85,7 @@ export default function Footer() {
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
-          className="fixed right-14 bottom-10 w-11 h-11 bg-[#111928] rounded-lg flex items-center justify-center hover:bg-[#057A55] transition-colors z-50"
+          className="fixed right-14 border-[#057A55E5] border-b bottom-10 w-11 h-11 bg-[#111928] rounded-lg flex items-center justify-center hover:bg-[#057A55] transition-colors z-50"
           title="Retour en haut de la page"
         >
           <ArrowUp className="w-6 h-6 text-[#057A55] hover:text-white" />

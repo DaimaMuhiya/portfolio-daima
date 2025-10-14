@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section id="about" className="max-w-[1200px] mx-auto px-5 mb-20">
       <div className="bg-[#121212] rounded-xl p-10 flex flex-col lg:flex-row justify-between items-center gap-20">
         <div className="relative">
-          <div className="rounded-full w-[400px] h-[400px] bg-gradient-to-br from-gray-600 to-gray-800 rounded-[32px] relative overflow-hidden">
+          <div className="rounded-full w-[400px] h-[400px] bg-gradient-to-br from-gray-600 to-gray-800 relative overflow-hidden">
             <ImageWithFallback
               src="/daima_muhiya.png"
               alt="daima muhiya"
