@@ -6,6 +6,8 @@ import {
   ShoppingCart,
   Brain,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -47,6 +49,15 @@ const services = [
 ];
 
 export default function ServicesSection() {
+  const router = useRouter();
+  // Animation pour les boutons
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      transition: { duration: 0.2 },
+    },
+    tap: { scale: 0.95 },
+  };
   return (
     <section className="max-w-[1200px] mx-auto px-5 mb-20">
       <div className="bg-[#121212] border border-[#2F343C] rounded-xl p-10">
@@ -59,7 +70,7 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {services.map((service, index) => (
             <div key={index} className="border border-[#1F2A37] rounded-xl p-6">
-              <service.icon className="w-4 h-4 text-[#6B7280] mb-3" />
+              <service.icon className="w-6 h-6 text-[#6B7280] mb-3" />
               <h3 className="text-xl font-medium text-white mb-2 font-mono">
                 {service.title}
               </h3>
@@ -72,7 +83,27 @@ export default function ServicesSection() {
         <div className="text-center">
           <p className="text-[#6B7280] text-sm font-mono">
             Envie de vous lancer dans de nouveaux projets et collaborations ?
-            Parlons de vos idées. Contactez-nous
+            Parlons de vos idées.{" "}
+            <motion.span
+              className="text-[#057A55] cursor-pointer underline underline-offset-4 decoration"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              onClick={() => {
+                // Vérifie si nous sommes déjà sur la page d'accueil
+                if (window.location.pathname === "/") {
+                  // Fait défiler jusqu'à la section Contacts
+                  document.getElementById("contacts")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                } else {
+                  // Rediriger vers la page d'accueil avec l'ancre
+                  router.push("/#contacts");
+                }
+              }}
+            >
+              Contactez-moi
+            </motion.span>
           </p>
         </div>
       </div>
