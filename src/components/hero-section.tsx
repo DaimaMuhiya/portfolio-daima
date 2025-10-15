@@ -24,7 +24,8 @@ export default function HeroSection() {
             </p>
             <h1 className="text-4xl lg:text-[40px] font-medium text-white leading-tight mb-6 font-mono">
               {/* Développeur Web & Mobile &#123;Full Stack&#125;_ */}
-              Ingénieur en Développement &#123;Logiciel&#125;_
+              Ingénieur en Développement{" "}
+              <span className="text-[#057A55E5]">&#123;Logiciel&#125;</span>_
             </h1>
             <p className="text-[#F98080] text-base leading-relaxed font-mono">
               &lt;p&gt; Fort d&apos;une expertise dans les technologies de

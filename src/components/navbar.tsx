@@ -47,7 +47,7 @@ export default function Navbar({
             onClick={() => onScrollToSection("resume")}
             className="text-white hover:text-[#84E1BC] transition-colors"
           >
-            Expérience
+            Expériences
           </button>
           {/* <button
             onClick={onResumeDownload}
