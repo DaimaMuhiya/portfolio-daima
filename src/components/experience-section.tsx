@@ -5,6 +5,11 @@ import Image from "next/image";
 
 const jobs = [
   {
+    company: "Uzima SARL",
+    period: "Septembre 2025 - Aujourd'hui",
+    icon: "/icons/jobs/uzima_logo.svg",
+  },
+  {
     company: "EnyWork SARL",
     period: "Novembre 2024 - Septembre 2025",
     icon: "/icons/jobs/enywork_logo.svg",
