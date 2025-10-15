@@ -2,24 +2,38 @@ import { BookOpen, Beaker } from "lucide-react";
 
 const education = [
   {
-    period: "2016-2020 : Doctorat",
-    degree: "Licence en Informatique",
+    period: "Mai 2023 - Juin 2024",
+    degree: "Développement logiciel",
+    institution: "Kadea Academy, Kinshasa",
+    description:
+      "Maîtrise du cycle complet de développement d'applications : analyse des besoins, front-end, back-end et gestion de projet jusqu'à la mise en ligne.",
     color: "#D7DFEE",
   },
   {
-    period: "2018-2022 : Université Harvard",
-    degree: "Certificat en React et Redux, Cours Développeur Node.Js",
+    period: "Juin 2021 - Juillet 2021",
+    degree: "Administration système et réseau",
+    institution: "Centre UniversiTIC ISTA/Kin, Kinshasa",
+    description: "Fonctionnement, configuration des équipements et conception.",
     color: "#C8D3E0",
   },
   {
-    period: "2010-2012 : Université d’Oxford",
-    degree: "Certification en Développement Web Full Stack",
+    period: "2016 - 2022",
+    degree: "Licence en informatique appliquée",
+    institution:
+      "Institut Supérieur de Techniques Appliquées de Kinshasa (ISTA/Kin), Kinshasa",
     color: "#374151",
   },
   {
-    period: "2016-2020 : Université d’Oxford",
-    degree: "Certificat en React et Redux, Cours Développeur Node.Js",
+    period: "2010 - 2016",
+    degree: "Diplôme d’État",
+    institution: "Institut Technique de Nseke, Mukaka, Nseke, Lualaba",
     color: "#4B5563",
+  },
+  {
+    period: "2004 - 2010",
+    degree: "Certificat d’études primaires",
+    institution: "E.P. Maendeleo, Mukaka, Nseke, Lualaba",
+    color: "#9CA3AF",
   },
 ];
 
@@ -65,6 +79,7 @@ export default function EducationResearchSection() {
                 <div>
                   <div className="text-[#6B7280] font-mono">{item.period}</div>
                   <div className="text-[#D7DFEE] font-mono">{item.degree}</div>
+                  <div className="text-[#6B7280] font-mono">{item.institution}</div>
                 </div>
               </div>
             ))}
