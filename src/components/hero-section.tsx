@@ -33,8 +33,8 @@ export default function HeroSection() {
               &lt;/p&gt;
             </p>
           </div>
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-end gap-3">
+          <div className="flex items-center flex-wrap mb-8">
+            <div className="flex items-end flex-wrap gap-3">
               <img
                 src="/icons/skills/AWS.svg"
                 alt="AWS"
