@@ -34,7 +34,7 @@ export default function ProjectsSection({
           </button>
         </div>
         <div className="flex flex-col lg:flex-row gap-16">
-          <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl overflow-hidden relative group">
+          <div className="md:w-[440px] md:h-[329px] w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl overflow-hidden relative group">
             <ImageWithFallback
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=440&h=329&fit=crop"
               alt="Capture du projet"

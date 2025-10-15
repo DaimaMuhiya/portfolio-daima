@@ -64,7 +64,7 @@ export default function ExperienceSection({
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#057A55] hover:bg-[#046545] text-white font-mono rounded-lg transition-colors"
           >
             <Download className="w-4 h-4" />
-            Télécharger mon CV
+            Mon CV
           </button>
         </div>
         <div className="flex flex-col lg:flex-row gap-16">
