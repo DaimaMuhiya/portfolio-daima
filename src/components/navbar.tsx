@@ -19,7 +19,7 @@ export default function Navbar({
   onResumeDownload,
 }: NavbarProps) {
   return (
-    <nav className="top-5 left-1/2 transform -translate-x-1/2 w-[1120px] max-w-[calc(100vw-40px)] bg-[#121212] border-l border-[#057A55E5] border-b rounded-xl px-4 py-5 flex justify-between items-center z-50 font-mono relative">
+    <nav className="top-5 left-1/2 transform -translate-x-1/2 w-[1120px] max-w-[calc(100vw-40px)] bg-[#121212] border-l border-[#057A55E5] border-b rounded-xl px-5 py-5 flex justify-between items-center z-50 font-mono relative">
       {/* Gradient border bottom */}
       {/* <div
         className="absolute bottom-0 left-0 right-0 h-[1px] rounded-b-xl z-10"
