@@ -23,11 +23,12 @@ export default function HeroSection() {
               &lt;span&gt; Salut! Je suis Daima MUHIYA &lt;/span&gt;
             </p>
             <h1 className="text-4xl lg:text-[40px] font-medium text-white leading-tight mb-6 font-mono">
-              Développeur Web & Mobile &#123;Full Stack&#125;_
+              {/* Développeur Web & Mobile &#123;Full Stack&#125;_ */}
+              Ingénieur en Développement &#123;Logiciel&#125;_
             </h1>
             <p className="text-[#F98080] text-base leading-relaxed font-mono">
               &lt;p&gt; Fort d&apos;une expertise dans les technologies de
-              pointe, je fournis des solutions web à la fois innovantes et
+              pointe, je fournis des solutions à la fois innovantes et
               robustes. &lt;/p&gt;
             </p>
           </div>
