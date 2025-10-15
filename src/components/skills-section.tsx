@@ -64,7 +64,7 @@ export default function SkillsSection() {
             {skillIcons.map((skill, index) => (
               <div
                 key={index}
-                className="w-20 h-20 rounded-full flex items-center justify-center bg-[#1a1a1a] hover:bg-[#2a2a2a] transition-colors"
+                className="md:w-20 md:h-20 w-16 h-16 rounded-full flex items-center justify-center bg-[#1a1a1a] hover:bg-[#2a2a2a] transition-colors"
                 title={skill.name}
               >
                 <Image

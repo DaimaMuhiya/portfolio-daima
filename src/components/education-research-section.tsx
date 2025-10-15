@@ -37,26 +37,26 @@ const education = [
   },
 ];
 
-const research = [
-  {
-    period: "2016-2020 : Analyse Avancée de Données avec Outils Big Data",
-    description:
-      "Utilisation d’outils Big Data pour l’analyse et la génération d’insights.",
-    color: "#D7DFEE",
-  },
-  {
-    period: "2018-2022 : Architectures d’Applications Cloud-Natives",
-    description:
-      "Étude des bonnes pratiques de conception d’applications cloud-native.",
-    color: "#C8D3E0",
-  },
-  {
-    period: "2016-2020 : Personnalisation de l’Expérience Utilisateur par l’IA",
-    description:
-      "Exploitation de l’IA pour adapter l’expérience utilisateur selon les comportements.",
-    color: "#4B5563",
-  },
-];
+// const research = [
+//   {
+//     period: "2016-2020 : Analyse Avancée de Données avec Outils Big Data",
+//     description:
+//       "Utilisation d’outils Big Data pour l’analyse et la génération d’insights.",
+//     color: "#D7DFEE",
+//   },
+//   {
+//     period: "2018-2022 : Architectures d’Applications Cloud-Natives",
+//     description:
+//       "Étude des bonnes pratiques de conception d’applications cloud-native.",
+//     color: "#C8D3E0",
+//   },
+//   {
+//     period: "2016-2020 : Personnalisation de l’Expérience Utilisateur par l’IA",
+//     description:
+//       "Exploitation de l’IA pour adapter l’expérience utilisateur selon les comportements.",
+//     color: "#4B5563",
+//   },
+// ];
 
 export default function EducationResearchSection() {
   return (
@@ -87,7 +87,7 @@ export default function EducationResearchSection() {
         </div>
 
         {/* Recherches */}
-        <div className="flex-1 bg-[#121212] border border-[#1F2A37] rounded-xl p-6">
+        {/* <div className="flex-1 bg-[#121212] border border-[#1F2A37] rounded-xl p-6">
           <div className="flex items-center gap-1 mb-8">
             <Beaker className="w-6 h-6 text-[#057A55]" />
             <span className="text-xl text-[#D7DFEE] font-mono">Recherches</span>
@@ -109,7 +109,7 @@ export default function EducationResearchSection() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
