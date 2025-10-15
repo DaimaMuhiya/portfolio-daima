@@ -38,13 +38,13 @@ const skillIcons = [
   { name: "Swagger", icon: "/icons/Swagger.svg" },
 ];
 
-const skillCategories = [
-  "Front-End : HTML, CSS, JavaScript, React, Angular, TypeScript",
-  "Back-End : Node.js, Express, Python, Django",
-  "Bases de données : MySQL, PostgreSQL, MongoDB",
-  "Outils & Plateformes : Git, Docker, AWS, Heroku, Kubernetes, Linux",
-  "Autres : APIs RESTful, GraphQL, Méthodologies Agiles",
-];
+// const skillCategories = [
+//   "Front-End : HTML, CSS, JavaScript, React, Angular, TypeScript",
+//   "Back-End : Node.js, Express, Python, Django",
+//   "Bases de données : MySQL, PostgreSQL, MongoDB",
+//   "Outils & Plateformes : Git, Docker, AWS, Heroku, Kubernetes, Linux",
+//   "Autres : APIs RESTful, GraphQL, Méthodologies Agiles",
+// ];
 
 export default function SkillsSection() {
   return (
@@ -59,8 +59,8 @@ export default function SkillsSection() {
             Mes Compétences
           </h2>
         </div>
-        <div className="flex flex-col lg:flex-row gap-16">
-          <div className="bg-[#0D0D0D] border border-[#1F2A37] rounded-xl p-6 grid grid-cols-3 md:grid-cols-5 gap-10">
+        {/* <div className="flex flex-col lg:flex-row gap-16"> */}
+          <div className="bg-[#0D0D0D] border border-[#1F2A37] rounded-xl p-6 grid grid-cols-4 md:grid-cols-10 gap-5">
             {skillIcons.map((skill, index) => (
               <div
                 key={index}
@@ -77,7 +77,7 @@ export default function SkillsSection() {
               </div>
             ))}
           </div>
-          <div className="flex-1 border border-[#1F2A37] rounded-xl p-6">
+          {/* <div className="flex-1 border border-[#1F2A37] rounded-xl p-6">
             <div className="space-y-4">
               {skillCategories.map((skill, index) => (
                 <div key={index} className="flex items-center gap-2">
@@ -86,8 +86,8 @@ export default function SkillsSection() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
     </section>
   );
