@@ -28,16 +28,32 @@ export default function HeroSection() {
             </h1>
             <p className="text-[#F98080] text-base leading-relaxed font-mono">
               &lt;p&gt; Fort d&apos;une expertise dans les technologies de
-              pointe, je fournis des solutions à la fois innovantes et
-              robustes. &lt;/p&gt;
+              pointe, je fournis des solutions à la fois innovantes et robustes.
+              &lt;/p&gt;
             </p>
           </div>
           <div className="flex items-center gap-3 mb-8">
             <div className="flex items-end gap-3">
-              <img src="/icons/AWS.svg" alt="AWS" className="w-14 h-14" />
-              <img src="/icons/Docker.svg" alt="Docker" className="w-14 h-14" />
-              <img src="/icons/Kubernetes.svg" alt="Kubernetes" className="w-14 h-14" />
-              <img src="/icons/Linux.svg" alt="Linux" className="w-14 h-14" />
+              <img
+                src="/icons/skills/AWS.svg"
+                alt="AWS"
+                className="w-14 h-14"
+              />
+              <img
+                src="/icons/skills/Docker.svg"
+                alt="Docker"
+                className="w-14 h-14"
+              />
+              <img
+                src="/icons/skills/Kubernetes.svg"
+                alt="Kubernetes"
+                className="w-14 h-14"
+              />
+              <img
+                src="/icons/skills/Linux.svg"
+                alt="Linux"
+                className="w-14 h-14"
+              />
             </div>
             <span className="text-[#6B7280] font-mono">... et plus encore</span>
           </div>

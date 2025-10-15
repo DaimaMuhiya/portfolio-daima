@@ -1,16 +1,33 @@
 "use client";
 
 import { Download } from "lucide-react";
+import Image from "next/image";
 
 const jobs = [
-  { company: "Google", period: "2017-Present", icon: "🔴" },
-  { company: "X(Twitter)", period: "2019-2022", icon: "⚫" },
-  { company: "Amazon", period: "2015-2020", icon: "🟠" },
-  { company: "Paypal", period: "2014-Present", icon: "🔵" },
+  {
+    company: "EnyWork SARL",
+    period: "Novembre 2024 - Septembre 2025",
+    icon: "/icons/jobs/enywork_logo.svg",
+  },
+  {
+    company: "Tessa & Co SARL",
+    period: "Juin 2024 - Novembre 2024",
+    icon: "/icons/jobs/tessa_co_logo.jpeg",
+  },
+  {
+    company: "Illumination Metaverse Group",
+    period: "Décembre 2022 - Juin 2024",
+    icon: "/icons/jobs/i_metaverse.jpeg",
+  },
+  {
+    company: "Développeur Freelance",
+    period: "Depuis 2020",
+    icon: "/icons/jobs/freelancer.svg",
+  },
 ];
 
 const achievements = [
-  "A conduit le développement d'applications web évolutives, améliorant les performances et l'expérience utilisateur à grande échelle.",
+  "A conduit le développement d'applications web & mobile évolutives, améliorant les performances et l'expérience utilisateur à grande échelle.",
   "Implémentation d'algorithmes de machine learning pour améliorer la fonctionnalité de recherche.",
   "Collaboration avec des équipes pluridisciplinaires pour intégrer des fonctionnalités de manière transparente.",
 ];
@@ -52,7 +69,14 @@ export default function ExperienceSection({
                 key={index}
                 className="bg-[#121212] border border-[#1F2A37] rounded-xl p-3 flex items-center gap-3"
               >
-                <div className="text-2xl">{item.icon}</div>
+                {/* <div className="text-2xl">{item.icon}</div> */}
+                <Image
+                  src={item.icon}
+                  alt={item.company}
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
                 <div>
                   <div className="text-xl text-white font-mono">
                     {item.company}
