@@ -90,16 +90,9 @@ export default function ServicesSection() {
               whileHover="hover"
               whileTap="tap"
               onClick={() => {
-                // Vérifie si nous sommes déjà sur la page d'accueil
-                if (window.location.pathname === "/") {
-                  // Fait défiler jusqu'à la section Contacts
-                  document.getElementById("contacts")?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                } else {
-                  // Rediriger vers la page d'accueil avec l'ancre
-                  router.push("/#contacts");
-                }
+                document.getElementById("contacts")?.scrollIntoView({
+                  behavior: "smooth",
+                });
               }}
             >
               Contactez-moi
