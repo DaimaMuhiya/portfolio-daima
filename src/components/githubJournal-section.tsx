@@ -83,14 +83,14 @@ export default function GitJournalSection({
           <GitHubContributions username={githubUsername} />
 
           {/* Git Journaling */}
-          <div className="mt-8 bg-[#0D0D0D] border border-[#1F2228] rounded-xl p-6">
+          {/* <div className="mt-8 bg-[#0D0D0D] border border-[#1F2228] rounded-xl p-6"> */}
             {/* <div className="flex items-center justify-between mb-6"> */}
-              <div className="flex items-center gap-1">
+              {/* <div className="flex items-center gap-1">
                 <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full"></div>
                 <span className="text-[#057A55] text-sm font-mono">
                   Journalisation Git
                 </span>
-              </div>
+              </div> */}
               {/* <a
                 href={`${githubUrl}?tab=repositories`}
                 target="_blank"
@@ -101,7 +101,7 @@ export default function GitJournalSection({
                 <ExternalLink className="w-3 h-3" />
               </a> */}
             {/* </div> */}
-            <div className="relative">
+            {/* <div className="relative">
               <div className="absolute left-[3px] top-0 w-[0.5px] h-full bg-[#2F343C]"></div>
               <div className="space-y-6 relative z-10">
                 {gitJournal.map((item, index) => (
@@ -123,7 +123,7 @@ export default function GitJournalSection({
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* <div className="mt-8 flex items-center gap-6">
             <div className="relative">
