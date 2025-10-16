@@ -5,7 +5,7 @@ import { useState } from "react";
 import Navbar from "@/components/navbar";
 import HeroSection from "@/components/hero-section";
 import StatsSection from "@/components/stats-section";
-import CooperationSection from "@/components/cooperation-section";
+import GitJournalSection from "@/components/githubJournal-section";
 import ServicesSection from "@/components/services-section";
 import ExperienceSection from "@/components/experience-section";
 import EducationResearchSection from "@/components/education-research-section";
@@ -137,7 +137,7 @@ CONTACT:
       <main className="pt-24 pb-20">
         <HeroSection />
         <StatsSection />
-        <CooperationSection />
+        <GitJournalSection />
         <ServicesSection />
         <ExperienceSection onResumeDownload={handleResumeDownload} />
         <EducationResearchSection />
