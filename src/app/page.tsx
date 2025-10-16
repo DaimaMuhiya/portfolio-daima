@@ -58,47 +58,17 @@ export default function Home() {
     }, 1500);
   };
 
+  // const handleResumeDownload = () => {
+  //   const link = document.createElement("a");
+  //   link.href = "/documents/Daima_Muhiya.pdf";
+  //   link.download = "Daima_Muhiya.pdf";
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
+
   const handleResumeDownload = () => {
-    // Create a mock PDF download
-    const resumeContent = `
-Daima MUHIYA - Senior Software Development Engeneer
-
-EXPERIENCE:
-• Google (2017-Present) - Senior Software Engineer
-• X(Twitter) (2019-2022) - Senior Software Engineer  
-• Amazon (2015-2020) - Software Engineer
-• PayPal (2014-Present) - Software Engineer
-
-EDUCATION:
-• PhD in Computer Science (2016-2020)
-• Harvard University - React & Redux Certificate (2018-2022)
-• Oxford University - Full Stack Web Development (2010-2012)
-
-SKILLS:
-• Front-End: HTML, CSS, JavaScript, React, Angular
-• Back-End: Node.js, Express, Python, Django
-• Databases: MySQL, PostgreSQL, MongoDB
-• Tools: Git, Docker, AWS, Heroku
-• Technologies: Python, TensorFlow, Angular, Kubernetes, GCP
-
-CONTACT:
-• Email: muhiyabenjamin@gmail.com
-• Phone: +243-995-825-417
-• Skype: daima.muhiya
-    `;
-
-    // Create and download the file
-    const blob = new Blob([resumeContent], {
-      type: "text/plain",
-    });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "Daima_MUHIYA_cv.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+  window.open("/documents/Daima_Muhiya.pdf", "_blank");
   };
 
   const handleViewProject = (projectId: string) => {

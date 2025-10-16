@@ -95,7 +95,7 @@ export default function ExperienceSection({
           </div>
           <div className="flex-1">
             <h3 className="text-xl font-medium text-[#057A55] mb-6 font-mono">
-              Ingénieur en développement logiciel
+              Ingénieur logiciel :
             </h3>
             <div className="space-y-6 mb-8">
               {achievements.map((achievement, index) => (
