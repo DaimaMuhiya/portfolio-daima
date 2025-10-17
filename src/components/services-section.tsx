@@ -62,7 +62,10 @@ export default function ServicesSection() {
     <section className="max-w-[1200px] mx-auto px-5 mb-20">
       <div className="bg-[#121212] border border-[#2F343C] rounded-xl p-10">
         <div className="text-center mb-8">
-          <span className="text-[#057A55] font-mono">Ce que je propose</span>
+          <div className="flex items-center justify-center gap-1 mb-3">
+            <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full" />
+            <span className="text-[#057A55] font-mono">Ce que je propose</span>
+          </div>
           <h2 className="text-2xl font-medium text-white mt-1 font-mono max-w-2xl mx-auto">
             Création de solutions personnalisées pour répondre à vos besoins
           </h2>

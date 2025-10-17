@@ -18,7 +18,7 @@ export default function ProjectsSection({
         <div className="mb-8 flex justify-between items-start">
           <div>
             <div className="flex items-center gap-1 mb-3">
-              <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full"></div>
+              <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full" />
               <span className="text-[#057A55] font-mono">Projets</span>
             </div>
             <h2 className="text-2xl font-medium text-[#D7DFEE] font-mono">

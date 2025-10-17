@@ -57,7 +57,7 @@ export default function SkillsSection() {
       <div className="bg-[#121212] rounded-xl p-10">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-1 mb-3">
-            <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full"></div>
+            <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full" />
             <span className="text-[#057A55] font-mono">Compétences</span>
           </div>
           <h2 className="text-2xl font-medium text-[#D7DFEE] font-mono">

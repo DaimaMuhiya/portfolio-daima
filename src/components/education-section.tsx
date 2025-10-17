@@ -74,7 +74,6 @@ export default function EducationSection() {
   return (
     <section className="max-w-[1200px] mx-auto px-5 mb-20">
       <div className="flex flex-col lg:flex-row gap-16">
-        
         {/* Éducation */}
         <div className="flex-1 bg-[#121212] border border-[#1F2A37] rounded-xl p-6">
           <div className="flex items-center gap-1 mb-8">

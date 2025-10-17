@@ -52,7 +52,7 @@ export default function ExperienceSection({
         <div className="mb-8 flex justify-between items-start">
           <div>
             <div className="flex items-center gap-1 mb-3">
-              <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full"></div>
+              <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full" />
               <span className="text-[#057A55] font-mono">Expérience</span>
             </div>
             <h2 className="text-2xl font-medium text-white font-mono">
@@ -100,7 +100,7 @@ export default function ExperienceSection({
             <div className="space-y-6 mb-8">
               {achievements.map((achievement, index) => (
                 <div key={index} className="flex items-start gap-2">
-                  <div className="w-[6px] h-[6px] bg-white rounded-full mt-1"></div>
+                  <div className="w-[6px] h-[6px] bg-white rounded-full mt-1" />
                   <p className="text-white font-mono">{achievement}</p>
                 </div>
               ))}

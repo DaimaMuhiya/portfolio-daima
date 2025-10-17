@@ -61,7 +61,7 @@ export default function GitJournalSection({
           <div className="mb-8 flex items-start justify-between flex-wrap gap-4">
             <div>
               <div className="flex items-center gap-1 mb-3">
-                <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full"></div>
+                <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full" />
                 <span className="text-[#057A55] text-sm font-mono">Activité GitHub</span>
               </div>
               {/* <h3 className="text-2xl font-medium text-white font-mono">
