@@ -21,7 +21,7 @@ const education = [
     degree: "Licence en informatique appliquée",
     institution:
       "Institut Supérieur de Techniques Appliquées de Kinshasa (ISTA/Kin), Kinshasa",
-    color: "#374151",
+    color: "#9CA3AF",
   },
   {
     period: "2010 - 2016",
@@ -33,7 +33,7 @@ const education = [
     period: "2004 - 2010",
     degree: "Certificat d’études primaires",
     institution: "E.P. Maendeleo, Mukaka, Nseke, Lualaba",
-    color: "#9CA3AF",
+    color: "#374151",
   },
 ];
 

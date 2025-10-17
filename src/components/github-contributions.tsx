@@ -113,7 +113,7 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
     <div className="bg-[#121212] border border-[#1F2228] rounded-xl p-6 overflow-x-auto">
       <div className="min-w-[800px]">
         {/* Badge du total des contributions */}
-        <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 bg-[#057A55] bg-opacity-20 border border-[#057A55] rounded-lg">
+        <div className="mb-4 inline-flex items-center gap-2">
           <span className="text-white text-sm font-mono font-medium">
             {data.totalContributions}
           </span>
