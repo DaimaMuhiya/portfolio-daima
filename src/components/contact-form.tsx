@@ -93,7 +93,7 @@ export default function ContactForm({
                     Email
                   </p>
                   <p className="text-[#F98080] text-sm font-mono truncate">
-                    muhiyabenjamin@gmail.com
+                    muhiyadaima@gmail.com
                   </p>
                 </div>
               </a>
