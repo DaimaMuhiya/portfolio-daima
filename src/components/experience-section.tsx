@@ -22,7 +22,7 @@ const jobs = [
   {
     company: "Illumination Metaverse Group",
     period: "Décembre 2022 - Juin 2024",
-    icon: "/icons/jobs/i_metaverse.jpeg",
+    icon: "https://media.licdn.com/dms/image/v2/D560BAQGFJEusaP1uWQ/company-logo_100_100/company-logo_100_100/0/1719257823080?e=1762387200&v=beta&t=SQtTs3mK9-nM9dsmKbolXO0lhm5Lalu5UmVmFRln0GM",
   },
   {
     company: "Développeur Freelance",
