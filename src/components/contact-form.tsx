@@ -65,7 +65,9 @@ export default function ContactForm({
             {/* Contact Details */}
             <div className="space-y-2 w-full">
               <a
-                href="tel:+243995825417"
+                href="https://wa.me/243995825417"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 hover:opacity-80 transition-opacity"
               >
                 <div className="w-10 h-10 text-[#6B7280] font-mono flex items-center justify-center">
@@ -82,7 +84,9 @@ export default function ContactForm({
               </a>
 
               <a
-                href="mailto:muhiyabenjamin@gmail.com"
+                href="mailto:muhiyadaima@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 hover:opacity-80 transition-opacity"
               >
                 <div className="w-10 h-10 text-[#6B7280] font-mono flex items-center justify-center">
