@@ -52,7 +52,7 @@ export default function ContactForm({
             <div className="relative">
               <div className="w-[120px] h-[120px] rounded-full border-2 border-[#2F343C] p-1 flex items-center justify-center">
                 <Image
-                  src="/daima_m.png"
+                  src="/profile/daima_muhiya.png"
                   alt="daima muhiya"
                   width={120}
                   height={120}
