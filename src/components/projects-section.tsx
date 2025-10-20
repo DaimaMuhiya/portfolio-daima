@@ -53,11 +53,12 @@ export default function ProjectsSection({
           <div className="flex-1">
             <div className="mb-8">
               <h3 className="text-xl font-medium text-[#057A55] mb-2 font-mono">
-                Intégration de l’IA dans un système e-commerce
+                Développement d’une plateforme d’apprentissage en ligne
               </h3>
               <p className="text-[#6B7280] text-sm font-mono mb-1">
-                Développement d’une plateforme d’apprentissage en ligne avec
-                gestion des cours, quiz et suivi des progrès.
+                Conception d’un système complet de gestion des cours, quiz
+                interactifs, suivi des progrès et recommandations personnalisées
+                basées sur l’IA.
               </p>
               <p className="text-[#F98080] font-mono">Infos projet</p>
             </div>
