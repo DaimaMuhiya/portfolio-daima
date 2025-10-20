@@ -3,7 +3,6 @@
 import {
   Code2,
   ArrowUp,
-  Twitter,
   Instagram,
   Linkedin,
   Facebook,
@@ -11,6 +10,7 @@ import {
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { FaXTwitter } from "react-icons/fa6";
 
 const MotionButton = motion(Button);
 
@@ -81,7 +81,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Compte Twitter de Daima Muhiya"
           >
-            <Twitter className="w-6 h-6 text-[#D7DFEE] hover:text-[#057A55] cursor-pointer" />
+            <FaXTwitter className="w-6 h-6 text-[#D7DFEE] hover:text-[#057A55] cursor-pointer" />
           </a>
         </div>
         {/* <div className="flex items-center gap-8">

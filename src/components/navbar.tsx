@@ -2,12 +2,12 @@
 
 import {
   Code2,
-  Twitter,
   Instagram,
   Linkedin,
   Facebook,
-  Download,
+  // Download,
 } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 
 interface NavbarProps {
   onScrollToSection: (sectionId: string) => void;
@@ -96,7 +96,7 @@ export default function Navbar({
           rel="noopener noreferrer"
           aria-label="Compte Twitter de Daima Muhiya"
         >
-          <Twitter className="w-6 h-6 text-[#D7DFEE] hover:text-[#057A55] cursor-pointer" />
+          <FaXTwitter className="w-6 h-6 text-[#D7DFEE] hover:text-[#057A55] cursor-pointer" />
         </a>
       </div>
     </nav>
