@@ -102,7 +102,7 @@ export default function Home() {
     <div>
       <Navbar
         onScrollToSection={scrollToSection}
-        onResumeDownload={handleResumeDownload}
+        // onResumeDownload={handleResumeDownload}
       />
       <main className="pt-24 pb-20">
         <HeroSection />

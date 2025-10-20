@@ -11,12 +11,12 @@ import { FaXTwitter } from "react-icons/fa6";
 
 interface NavbarProps {
   onScrollToSection: (sectionId: string) => void;
-  onResumeDownload: () => void;
+  // onResumeDownload: () => void;
 }
 
 export default function Navbar({
   onScrollToSection,
-  onResumeDownload,
+  // onResumeDownload,
 }: NavbarProps) {
   return (
     <nav className="top-5 left-1/2 transform -translate-x-1/2 w-[1120px] max-w-[calc(100vw-40px)] bg-[#121212] border-l border-[#057A55E5] border-b rounded-xl px-5 py-5 flex justify-between items-center z-50 font-mono relative">

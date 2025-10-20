@@ -6,7 +6,7 @@ import {
   ShoppingCart,
   Brain,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 
 const services = [
@@ -49,7 +49,7 @@ const services = [
 ];
 
 export default function ServicesSection() {
-  const router = useRouter();
+  // const router = useRouter();
   // Animation pour les boutons
   const buttonVariants = {
     hover: {

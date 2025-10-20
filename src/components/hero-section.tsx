@@ -1,5 +1,6 @@
 import { Code2 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -35,25 +36,33 @@ export default function HeroSection() {
           </div>
           <div className="flex items-center flex-wrap mb-8">
             <div className="flex items-end flex-wrap gap-3">
-              <img
+              <Image
                 src="/icons/skills/AWS.svg"
                 alt="AWS"
                 className="w-14 h-14"
+                width={56}
+                height={56}
               />
-              <img
+              <Image
                 src="/icons/skills/Docker.svg"
                 alt="Docker"
                 className="w-14 h-14"
+                width={56}
+                height={56}
               />
-              <img
+              <Image
                 src="/icons/skills/Kubernetes.svg"
                 alt="Kubernetes"
                 className="w-14 h-14"
+                width={56}
+                height={56}
               />
-              <img
+              <Image
                 src="/icons/skills/Linux.svg"
                 alt="Linux"
                 className="w-14 h-14"
+                width={56}
+                height={56}
               />
             </div>
             <span className="text-[#6B7280] font-mono">... et plus encore</span>

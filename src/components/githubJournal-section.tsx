@@ -1,53 +1,53 @@
-import { Phone, Mail, Github, ExternalLink } from "lucide-react";
-import Image from "next/image";
+import {  Github, ExternalLink } from "lucide-react";
+// import Image from "next/image";
 import { GitHubContributions } from "./github-contributions";
 
 interface GitJournalSectionProps {
   githubUsername?: string;
 }
 
-const gitJournal = [
-  {
-    date: "25 Jul",
-    project: "Berulla-streaming-API-services-for-python",
-    color: "#F9FAFB",
-  },
-  {
-    date: "25 Jun",
-    project: "ChatHub-Chat-application-vuejs-mongodb",
-    color: "#F3F4F6",
-  },
-  {
-    date: "10 May",
-    project: "Dineeasy-coffee-tea-reservation-system",
-    color: "#E5E7EB",
-  },
-  {
-    date: "5 May",
-    project: "Financebuddy-personal-finance-tracker",
-    color: "#D1D5DB",
-  },
-  {
-    date: "5 May",
-    project: "Tunestream-music-streaming-service-API",
-    color: "#9CA3AF",
-  },
-  {
-    date: "5 May",
-    project: "Dineeasy-coffee-tea-reservation-system",
-    color: "#6B7280",
-  },
-  {
-    date: "5 May",
-    project: "ChatHub-Chat-application-vuejs-mongodb",
-    color: "#4B5563",
-  },
-  {
-    date: "5 Apr",
-    project: "Berulla-streaming-API-services-for-python",
-    color: "#374151",
-  },
-];
+// const gitJournal = [
+//   {
+//     date: "25 Jul",
+//     project: "Berulla-streaming-API-services-for-python",
+//     color: "#F9FAFB",
+//   },
+//   {
+//     date: "25 Jun",
+//     project: "ChatHub-Chat-application-vuejs-mongodb",
+//     color: "#F3F4F6",
+//   },
+//   {
+//     date: "10 May",
+//     project: "Dineeasy-coffee-tea-reservation-system",
+//     color: "#E5E7EB",
+//   },
+//   {
+//     date: "5 May",
+//     project: "Financebuddy-personal-finance-tracker",
+//     color: "#D1D5DB",
+//   },
+//   {
+//     date: "5 May",
+//     project: "Tunestream-music-streaming-service-API",
+//     color: "#9CA3AF",
+//   },
+//   {
+//     date: "5 May",
+//     project: "Dineeasy-coffee-tea-reservation-system",
+//     color: "#6B7280",
+//   },
+//   {
+//     date: "5 May",
+//     project: "ChatHub-Chat-application-vuejs-mongodb",
+//     color: "#4B5563",
+//   },
+//   {
+//     date: "5 Apr",
+//     project: "Berulla-streaming-API-services-for-python",
+//     color: "#374151",
+//   },
+// ];
 
 export default function GitJournalSection({
   githubUsername = "DaimaMuhiya",

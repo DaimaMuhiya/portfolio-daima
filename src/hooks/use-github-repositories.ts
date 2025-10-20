@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 interface Repository {
   name: string;
@@ -27,7 +27,7 @@ export function useGitHubRepositories(
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchRepositories = async () => {
+  const fetchRepositories = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -49,13 +49,13 @@ export function useGitHubRepositories(
     } finally {
       setLoading(false);
     }
-  };
+  }, [username]);
 
   useEffect(() => {
     if (username) {
       fetchRepositories();
     }
-  }, [username]);
+  }, [username, fetchRepositories]);
 
   return {
     repositories,

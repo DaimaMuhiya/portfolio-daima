@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 interface ContributionDay {
   date: string;
@@ -36,7 +36,7 @@ export function useGitHubContributions(
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchContributions = async () => {
+  const fetchContributions = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -58,13 +58,13 @@ export function useGitHubContributions(
     } finally {
       setLoading(false);
     }
-  };
+  }, [username]);
 
   useEffect(() => {
     if (username) {
       fetchContributions();
     }
-  }, [username]);
+  }, [username, fetchContributions]);
 
   return {
     data,

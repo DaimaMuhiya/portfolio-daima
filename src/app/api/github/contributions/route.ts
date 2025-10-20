@@ -11,9 +11,9 @@ interface ContributionDay {
     | "FOURTH_QUARTILE";
 }
 
-interface ContributionWeek {
-  contributionDays: ContributionDay[];
-}
+// interface ContributionWeek {
+//   contributionDays: ContributionDay[];
+// }
 
 const GITHUB_GRAPHQL_API = "https://api.github.com/graphql";
 
