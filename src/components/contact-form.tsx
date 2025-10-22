@@ -4,6 +4,14 @@ import type React from "react";
 
 import { Send, Phone, Mail } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  container,
+  fadeInUp,
+  fadeInLeft,
+  fadeInRight,
+  scaleIn,
+} from "@/lib/motionVariants";
 
 interface ContactFormProps {
   formData: {
@@ -29,8 +37,14 @@ export default function ContactForm({
 }: ContactFormProps) {
   return (
     <section id="contacts" className="max-w-[1200px] mx-auto px-5 mb-20">
-      <div className="bg-[#121212] rounded-xl p-10">
-        <div className="text-center mb-8">
+      <motion.div
+        className="bg-[#121212] rounded-xl p-10"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={container}
+      >
+        <motion.div className="text-center mb-8" variants={fadeInUp}>
           <div className="flex items-center justify-center gap-1 mb-3">
             <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full" />
             <span className="text-[#057A55] font-mono">Entrer en contact</span>
@@ -43,13 +57,20 @@ export default function ContactForm({
             technologie ? Laissez-moi un message et je vous répondrai
             rapidement.
           </p>
-        </div>
+        </motion.div>
         {/* Layout: Contact Info (à gauche) + Form (à droite) */}
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           {/* Left Side - Contact Info */}
-          <div className="w-full lg:w-auto lg:min-w-[300px] flex flex-col items-center lg:items-start gap-6">
+          <motion.div
+            className="w-full lg:w-auto lg:min-w-[300px] flex flex-col items-center lg:items-start gap-6"
+            variants={fadeInLeft}
+          >
             {/* Profile Image */}
-            <div className="relative">
+            <motion.div
+              className="relative"
+              variants={scaleIn}
+              whileHover={{ scale: 1.05 }}
+            >
               <div className="w-[120px] h-[120px] rounded-full border-2 border-[#2F343C] p-1 flex items-center justify-center">
                 <Image
                   src="/profile/daima_muhiya.png"
@@ -59,16 +80,21 @@ export default function ContactForm({
                   className="rounded-full w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute bottom-3 right-3 w-[12px] h-[12px] bg-[#057A55] rounded-full border-2 border-[#121212]"></div>
-            </div>
+              <motion.div
+                className="absolute bottom-3 right-3 w-[12px] h-[12px] bg-[#057A55] rounded-full border-2 border-[#121212]"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              ></motion.div>
+            </motion.div>
 
             {/* Contact Details */}
-            <div className="space-y-2 w-full">
-              <a
+            <motion.div className="space-y-2 w-full" variants={fadeInUp}>
+              <motion.a
                 href="https://wa.me/243995825417"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+                whileHover={{ x: 5 }}
               >
                 <div className="w-10 h-10 text-[#6B7280] font-mono flex items-center justify-center">
                   <Phone className="w-6 h-6 text-[#057A55]" />
@@ -81,13 +107,14 @@ export default function ContactForm({
                     +243 995 825 417
                   </p>
                 </div>
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
                 href="mailto:muhiyadaima@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+                whileHover={{ x: 5 }}
               >
                 <div className="w-10 h-10 text-[#6B7280] font-mono flex items-center justify-center">
                   <Mail className="w-6 h-6 text-[#057A55]" />
@@ -100,20 +127,24 @@ export default function ContactForm({
                     muhiyadaima@gmail.com
                   </p>
                 </div>
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
 
             {/* Availability Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#057A55] bg-opacity-10 border border-[#057A55] rounded-lg">
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#057A55] bg-opacity-10 border border-[#057A55] rounded-lg"
+              variants={scaleIn}
+              whileHover={{ scale: 1.05 }}
+            >
               <div className="w-2 h-2 bg-[#057A55] rounded-full animate-pulse"></div>
               <span className="text-white text-xs font-mono">
                 Disponible pour freelance
               </span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Side - Contact Form */}
-          <div className="flex-1 w-full">
+          <motion.div className="flex-1 w-full" variants={fadeInRight}>
             <form onSubmit={onSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -196,11 +227,19 @@ export default function ContactForm({
                   </p>
                 </div>
               )}
-              <div className="text-center md:text-left">
-                <button
+              <motion.div
+                className="text-center md:text-left"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
+                <motion.button
                   type="submit"
                   disabled={isSubmitting}
                   className="inline-flex items-center gap-3 px-8 py-4 bg-[#057A55] hover:bg-[#046545] disabled:bg-[#057A55] disabled:opacity-50 text-white font-mono rounded-lg transition-colors"
+                  whileHover={!isSubmitting ? { scale: 1.05 } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.95 } : {}}
                 >
                   {isSubmitting ? (
                     <>
@@ -213,12 +252,12 @@ export default function ContactForm({
                       Envoyer le message
                     </>
                   )}
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
             </form>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

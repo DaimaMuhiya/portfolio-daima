@@ -2,6 +2,16 @@
 
 import { Download } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  container,
+  fadeInLeft,
+  fadeInRight,
+  fadeInUp,
+  buttonVariants,
+} from "@/lib/motionVariants";
+
+const MotionImage = motion(Image);
 
 const jobs = [
   {
@@ -48,8 +58,17 @@ export default function ExperienceSection({
 }: ExperienceSectionProps) {
   return (
     <section id="resume" className="max-w-[1200px] mx-auto px-5 mb-20">
-      <div className="bg-[#121212] rounded-xl p-10">
-        <div className="mb-8 flex justify-between items-start">
+      <motion.div
+        className="bg-[#121212] rounded-xl p-10"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={container}
+      >
+        <motion.div
+          className="mb-8 flex justify-between items-start"
+          variants={fadeInUp}
+        >
           <div>
             <div className="flex items-center gap-1 mb-3">
               <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full" />
@@ -59,28 +78,38 @@ export default function ExperienceSection({
               5 ans de passion en programmation
             </h2>
           </div>
-          <button
+          <motion.button
             onClick={onResumeDownload}
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#057A55] hover:bg-[#046545] text-white font-mono rounded-lg transition-colors"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
           >
             <Download className="w-4 h-4" />
             Mon CV
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
         <div className="flex flex-col lg:flex-row gap-16">
-          <div className="space-y-3">
+          <motion.div className="space-y-3" variants={fadeInLeft}>
             {jobs.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="bg-[#121212] border border-[#1F2A37] rounded-xl p-3 flex items-center gap-3"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.02, borderColor: "#057A55" }}
               >
                 {/* <div className="text-2xl">{item.icon}</div> */}
-                <Image
+                <MotionImage
                   src={item.icon}
                   alt={item.company}
                   width={48}
                   height={48}
                   className="object-contain"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
                 />
                 <div>
                   <div className="text-xl text-white font-mono">
@@ -90,19 +119,29 @@ export default function ExperienceSection({
                     {item.period}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-          <div className="flex-1">
-            <h3 className="text-xl font-medium text-[#057A55] mb-6 font-mono">
+          </motion.div>
+          <motion.div className="flex-1" variants={fadeInRight}>
+            <motion.h3
+              className="text-xl font-medium text-[#057A55] mb-6 font-mono"
+              variants={fadeInUp}
+            >
               Ingénieur logiciel :
-            </h3>
+            </motion.h3>
             <div className="space-y-6 mb-8">
               {achievements.map((achievement, index) => (
-                <div key={index} className="flex items-start gap-2">
+                <motion.div
+                  key={index}
+                  className="flex items-start gap-2"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15, duration: 0.5 }}
+                >
                   <div className="w-[6px] h-[6px] bg-white rounded-full mt-1" />
                   <p className="text-white font-mono">{achievement}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
             {/* <div className="flex items-center gap-3">
@@ -115,9 +154,9 @@ export default function ExperienceSection({
                 </div>
               ))}
             </div> */}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

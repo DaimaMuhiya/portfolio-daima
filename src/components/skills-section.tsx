@@ -1,4 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { container, fadeInUp } from "@/lib/motionVariants";
+
+const MotionImage = motion(Image);
 
 const skillIcons = [
   { name: "HTML5", icon: "/icons/skills/HTML5.svg" },
@@ -54,8 +60,14 @@ const skillIcons = [
 export default function SkillsSection() {
   return (
     <section className="max-w-[1200px] mx-auto px-5 mb-20">
-      <div className="bg-[#121212] rounded-xl p-10">
-        <div className="text-center mb-8">
+      <motion.div
+        className="bg-[#121212] rounded-xl p-10"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={container}
+      >
+        <motion.div className="text-center mb-8" variants={fadeInUp}>
           <div className="flex items-center justify-center gap-1 mb-3">
             <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full" />
             <span className="text-[#057A55] font-mono">Compétences</span>
@@ -63,26 +75,47 @@ export default function SkillsSection() {
           <h2 className="text-2xl font-medium text-[#D7DFEE] font-mono">
             Mes Compétences
           </h2>
-        </div>
+        </motion.div>
         {/* <div className="flex flex-col lg:flex-row gap-16"> */}
-          <div className="bg-[#0D0D0D] border border-[#1F2A37] rounded-xl p-6 grid grid-cols-4 md:grid-cols-10 gap-5">
-            {skillIcons.map((skill, index) => (
-              <div
-                key={index}
-                className="md:w-20 md:h-20 w-14 h-14 rounded-full flex items-center justify-center bg-[#1a1a1a] hover:bg-[#2a2a2a] transition-colors"
-                title={skill.name}
-              >
-                <Image
-                  src={skill.icon}
-                  alt={skill.name}
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                />
-              </div>
-            ))}
-          </div>
-          {/* <div className="flex-1 border border-[#1F2A37] rounded-xl p-6">
+        <motion.div
+          className="bg-[#0D0D0D] border border-[#1F2A37] rounded-xl p-6 grid grid-cols-4 md:grid-cols-10 gap-5"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {skillIcons.map((skill, index) => (
+            <motion.div
+              key={index}
+              className="md:w-20 md:h-20 w-14 h-14 rounded-full flex items-center justify-center bg-[#1a1a1a] hover:bg-[#2a2a2a] transition-colors"
+              title={skill.name}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.03,
+                duration: 0.4,
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+              whileHover={{
+                scale: 1.2,
+                rotate: 360,
+                backgroundColor: "#2a2a2a",
+              }}
+            >
+              <MotionImage
+                src={skill.icon}
+                alt={skill.name}
+                width={48}
+                height={48}
+                className="object-contain"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+        {/* <div className="flex-1 border border-[#1F2A37] rounded-xl p-6">
             <div className="space-y-4">
               {skillCategories.map((skill, index) => (
                 <div key={index} className="flex items-center gap-2">
@@ -93,7 +126,7 @@ export default function SkillsSection() {
             </div>
           </div> */}
         {/* </div> */}
-      </div>
+      </motion.div>
     </section>
   );
 }
