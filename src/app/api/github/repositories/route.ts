@@ -38,7 +38,7 @@ const REPOSITORIES_QUERY = `
       repositories(
         first: $limit
         orderBy: { field: PUSHED_AT, direction: DESC }
-        privacy: PUBLIC
+        ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]
       ) {
         nodes {
           name
