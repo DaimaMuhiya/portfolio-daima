@@ -115,12 +115,14 @@ export default function HeroSection() {
                   >
                     <Suspense
                       fallback={
-                        <span className="text-[#057A55E5]">Samouraï_x88_</span>
+                        <span className="text-[#057A55E5]">
+                          &#123;Samouraï_x88&#125;_
+                        </span>
                       }
                     >
                       <AnimatedText
                         key={`alternate-${componentKey}`}
-                        text="Samouraï_x88_"
+                        text="{Samouraï_x88}_"
                         el="h1"
                         className="text-4xl lg:text-[40px]"
                         blinkCount={5}
