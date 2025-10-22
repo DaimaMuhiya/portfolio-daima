@@ -19,7 +19,8 @@ const LEVEL_COLORS = {
 };
 
 export function GitHubContributions({ username }: GitHubContributionsProps) {
-  const { data, loading, error, refetch } = useGitHubContributions(username);
+  const { data, loading, error, isDemoMode, refetch } =
+    useGitHubContributions(username);
   const [hoveredDay, setHoveredDay] = useState<{
     date: string;
     count: number;
@@ -113,13 +114,18 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
     <div className="bg-[#121212] border border-[#1F2228] rounded-xl p-6 overflow-x-auto">
       <div className="min-w-[800px]">
         {/* Badge du total des contributions */}
-        <div className="mb-4 inline-flex items-center gap-2">
+        <div className="mb-4 inline-flex items-center gap-2 flex-wrap">
           <span className="text-white text-sm font-mono font-medium">
             {data.totalContributions}
           </span>
           <span className="text-white text-xs font-mono">
             contributions cette année_
           </span>
+          {isDemoMode && (
+            <span className="px-2 py-1 bg-yellow-600/20 border border-yellow-600/40 text-yellow-500 text-[10px] font-mono rounded">
+              MODE DÉMO
+            </span>
+          )}
         </div>
 
         {/* Labels des mois */}

@@ -204,14 +204,25 @@ export async function GET(request: NextRequest) {
     if (data.errors) {
       console.error("GitHub API errors:", data.errors);
 
-      // Vérifiez s'il s'agit d'une erreur « utilisateur introuvable ».
+      // Check if it's specifically a user not found error
       const isUserNotFound = data.errors.some(
         (error: GitHubError) =>
-          error.type === "NOT_FOUND" && error.path?.includes("user")
+          error.type === "NOT_FOUND" &&
+          error.path?.includes("user") &&
+          !error.message?.toLowerCase().includes("api rate limit")
       );
 
-      if (isUserNotFound) {
-        // Renvoyer les données de démonstration au lieu d'une erreur
+      // Check if it's an authentication error
+      const isAuthError = data.errors.some(
+        (error: GitHubError) =>
+          error.message?.toLowerCase().includes("unauthorized") ||
+          error.message?.toLowerCase().includes("forbidden") ||
+          error.message?.toLowerCase().includes("bad credentials")
+      );
+
+      if (isUserNotFound && !isAuthError) {
+        // Return demo data ONLY for user not found
+        console.warn(`User ${username} not found, returning demo data`);
         return NextResponse.json({
           repositories: generateDemoRepositories(limit),
           isDemoMode: true,

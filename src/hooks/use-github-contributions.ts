@@ -20,12 +20,14 @@ interface ContributionWeek {
 interface GitHubContributionsData {
   totalContributions: number;
   weeks: ContributionWeek[];
+  isDemoMode?: boolean;
 }
 
 interface UseGitHubContributionsReturn {
   data: GitHubContributionsData | null;
   loading: boolean;
   error: string | null;
+  isDemoMode: boolean;
   refetch: () => void;
 }
 
@@ -35,6 +37,7 @@ export function useGitHubContributions(
   const [data, setData] = useState<GitHubContributionsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isDemoMode, setIsDemoMode] = useState(false);
 
   const fetchContributions = useCallback(async () => {
     try {
@@ -58,6 +61,7 @@ export function useGitHubContributions(
 
       const result = await response.json();
       setData(result);
+      setIsDemoMode(result.isDemoMode || false);
     } catch (err) {
       console.error("Error fetching GitHub contributions:", err);
       setError(err instanceof Error ? err.message : "An error occurred");
@@ -76,6 +80,7 @@ export function useGitHubContributions(
     data,
     loading,
     error,
+    isDemoMode,
     refetch: fetchContributions,
   };
 }
