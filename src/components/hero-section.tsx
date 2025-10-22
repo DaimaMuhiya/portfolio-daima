@@ -18,6 +18,15 @@ const AnimatedText = lazy(() => import("./animations/animated-text"));
 
 export default function HeroSection() {
   const [showAlternateText, setShowAlternateText] = useState(false);
+  const [componentKey, setComponentKey] = useState(0);
+
+  const handleBlinkComplete = () => {
+    // Attendre un peu avant de changer de texte
+    setTimeout(() => {
+      setShowAlternateText((prev) => !prev);
+      setComponentKey((prev) => prev + 1);
+    }, 500);
+  };
 
   return (
     <section id="about" className="max-w-[1200px] mx-auto px-5 mb-20">
@@ -84,13 +93,13 @@ export default function HeroSection() {
                         }
                       >
                         <AnimatedText
+                          key={`main-${componentKey}`}
                           text="{Logiciel}_"
-                          alternateText="Samouraï_x88_"
                           el="h1"
                           className="text-4xl lg:text-[40px]"
                           blinkCount={5}
                           blinkSpeed={500}
-                          onCycleChange={setShowAlternateText}
+                          onBlinkComplete={handleBlinkComplete}
                         />
                       </Suspense>
                     </div>
@@ -110,13 +119,13 @@ export default function HeroSection() {
                       }
                     >
                       <AnimatedText
+                        key={`alternate-${componentKey}`}
                         text="Samouraï_x88_"
-                        alternateText="{Logiciel}_"
                         el="h1"
                         className="text-4xl lg:text-[40px]"
                         blinkCount={5}
                         blinkSpeed={500}
-                        onCycleChange={setShowAlternateText}
+                        onBlinkComplete={handleBlinkComplete}
                       />
                     </Suspense>
                   </motion.div>
