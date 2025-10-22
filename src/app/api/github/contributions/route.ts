@@ -42,6 +42,27 @@ const CONTRIBUTIONS_QUERY = `
   }
 `;
 
+const VIEWER_CONTRIBUTIONS_QUERY = `
+  query($from:DateTime!, $to:DateTime!) {
+    viewer {
+      contributionsCollection(from: $from, to: $to) {
+        contributionCalendar {
+          totalContributions
+          weeks {
+            contributionDays {
+              contributionCount
+              date
+              contributionLevel
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+// Note: GitHub's GraphQL API includes private contributions by default when querying the authenticated viewer
+
 function generateDemoContributions() {
   const weeks: ContributionWeek[] = [];
   const today = new Date();
@@ -92,10 +113,11 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // Calculer la plage de dates (365 derniers jours)
+  // Calculer la plage de dates (365 derniers jours, comme le graphe GitHub)
   const to = new Date();
   const from = new Date();
   from.setFullYear(from.getFullYear() - 1);
+  from.setDate(from.getDate() + 1); // Exactement 365 jours
 
   try {
     // Essayer d'utiliser GITHUB_TOKEN depuis l'environnement, mais facultatif
@@ -111,19 +133,31 @@ export async function GET(request: NextRequest) {
       headers["Authorization"] = `Bearer ${token}`;
     }
 
+    // Use viewer query if token is available to get private contributions
+    const useViewerQuery = !!token;
+    const query = useViewerQuery
+      ? VIEWER_CONTRIBUTIONS_QUERY
+      : CONTRIBUTIONS_QUERY;
+    const variables = useViewerQuery
+      ? {
+          from: from.toISOString(),
+          to: to.toISOString(),
+        }
+      : {
+          userName: username,
+          from: from.toISOString(),
+          to: to.toISOString(),
+        };
+
     const response = await fetch(GITHUB_GRAPHQL_API, {
       method: "POST",
       headers,
       body: JSON.stringify({
-        query: CONTRIBUTIONS_QUERY,
-        variables: {
-          userName: username,
-          from: from.toISOString(),
-          to: to.toISOString(),
-        },
+        query,
+        variables,
       }),
-      // Cache pour 1 heure
-      next: { revalidate: 3600 },
+      // Désactiver le cache pour toujours avoir les données à jour
+      cache: "no-store",
     });
 
     if (!response.ok) {
@@ -173,6 +207,7 @@ export async function GET(request: NextRequest) {
     }
 
     const contributionsData =
+      data.data?.viewer?.contributionsCollection?.contributionCalendar ||
       data.data?.user?.contributionsCollection?.contributionCalendar;
 
     if (!contributionsData) {
@@ -184,6 +219,14 @@ export async function GET(request: NextRequest) {
         { status: 404 }
       );
     }
+
+    // Log pour debug
+    console.log(`Contributions récupérées pour ${username}:`, {
+      total: contributionsData.totalContributions,
+      from: from.toISOString().split("T")[0],
+      to: to.toISOString().split("T")[0],
+      source: data.data?.viewer ? "viewer (authentifié)" : "user (public)",
+    });
 
     return NextResponse.json({
       totalContributions: contributionsData.totalContributions,

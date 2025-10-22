@@ -70,6 +70,44 @@ const REPOSITORIES_QUERY = `
   }
 `;
 
+const VIEWER_REPOSITORIES_QUERY = `
+  query($limit: Int!) {
+    viewer {
+      repositories(
+        first: $limit
+        orderBy: { field: PUSHED_AT, direction: DESC }
+        ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]
+      ) {
+        nodes {
+          name
+          url
+          pushedAt
+          description
+          stargazerCount
+          primaryLanguage {
+            name
+            color
+          }
+          defaultBranchRef {
+            target {
+              ... on Commit {
+                history(first: 1) {
+                  edges {
+                    node {
+                      message
+                      committedDate
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 function generateDemoRepositories(count: number) {
   const languages = [
     { name: "TypeScript", color: "#3178c6" },
@@ -181,18 +219,29 @@ export async function GET(request: NextRequest) {
       headers["Authorization"] = `Bearer ${token}`;
     }
 
+    // Use viewer query if token is available to get private repositories
+    const useViewerQuery = !!token;
+    const query = useViewerQuery
+      ? VIEWER_REPOSITORIES_QUERY
+      : REPOSITORIES_QUERY;
+    const variables = useViewerQuery
+      ? {
+          limit: Math.min(limit, 100),
+        }
+      : {
+          userName: username,
+          limit: Math.min(limit, 100),
+        };
+
     const response = await fetch(GITHUB_GRAPHQL_API, {
       method: "POST",
       headers,
       body: JSON.stringify({
-        query: REPOSITORIES_QUERY,
-        variables: {
-          userName: username,
-          limit: Math.min(limit, 100),
-        },
+        query,
+        variables,
       }),
-      // Cache for 30 minutes
-      next: { revalidate: 1800 },
+      // Désactiver le cache pour toujours avoir les données à jour
+      cache: "no-store",
     });
 
     if (!response.ok) {
@@ -235,7 +284,9 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const repositories = data.data?.user?.repositories?.nodes;
+    const repositories =
+      data.data?.viewer?.repositories?.nodes ||
+      data.data?.user?.repositories?.nodes;
 
     if (!repositories) {
       return NextResponse.json(
