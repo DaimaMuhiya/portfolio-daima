@@ -26,6 +26,12 @@ interface Repository {
 
 const GITHUB_GRAPHQL_API = "https://api.github.com/graphql";
 
+interface GitHubError {
+  type?: string;
+  path?: string[];
+  message?: string;
+}
+
 const REPOSITORIES_QUERY = `
   query($userName: String!, $limit: Int!) {
     user(login: $userName) {
@@ -198,14 +204,14 @@ export async function GET(request: NextRequest) {
     if (data.errors) {
       console.error("GitHub API errors:", data.errors);
 
-      // Check if it's a user not found error
+      // Vérifiez s'il s'agit d'une erreur « utilisateur introuvable ».
       const isUserNotFound = data.errors.some(
-        (error: any) =>
+        (error: GitHubError) =>
           error.type === "NOT_FOUND" && error.path?.includes("user")
       );
 
       if (isUserNotFound) {
-        // Return demo data instead of error
+        // Renvoyer les données de démonstration au lieu d'une erreur
         return NextResponse.json({
           repositories: generateDemoRepositories(limit),
           isDemoMode: true,
@@ -227,7 +233,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Transform the data to match our needs
+    // Transformez les données pour qu'elles correspondent à nos besoins.
     const transformedRepos = repositories.map((repo: Repository) => {
       const pushedDate = new Date(repo.pushedAt);
       const commitMessage =
@@ -249,7 +255,7 @@ export async function GET(request: NextRequest) {
         stars: repo.stargazerCount,
         language: repo.primaryLanguage?.name || "Unknown",
         languageColor: repo.primaryLanguage?.color || "#6B7280",
-        commitMessage: commitMessage.split("\n")[0], // Get first line of commit message
+        commitMessage: commitMessage.split("\n")[0], // Obtenir la première ligne du message de validation
         commitDate: commitDate,
       };
     });

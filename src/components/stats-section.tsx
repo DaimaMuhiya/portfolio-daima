@@ -1,4 +1,4 @@
-import { Calendar, Monitor, Smile, Award } from "lucide-react";
+import { Calendar, Monitor, Award } from "lucide-react";
 
 const stats = [
   { icon: Calendar, value: "5", label: "Années d'expérience" },

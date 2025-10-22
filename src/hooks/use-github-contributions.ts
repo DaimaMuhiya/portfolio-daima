@@ -51,7 +51,7 @@ export function useGitHubContributions(
           const errorData = await response.json();
           errorMessage = errorData.error || errorMessage;
         } catch {
-          // If JSON parsing fails, use default error message
+          // Si l'analyse JSON échoue, utilisez le message d'erreur par défaut.
         }
         throw new Error(errorMessage);
       }

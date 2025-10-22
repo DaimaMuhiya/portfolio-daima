@@ -107,7 +107,7 @@ export default function GitJournalSection() {
                             {repo.date}: {repo.name}
                           </span>
                           <span className="block text-[#6B7280] mt-1 italic">
-                            "{repo.commitMessage}"
+                            &ldquo;{repo.commitMessage}&rdquo;
                           </span>
                         </a>
                       </div>

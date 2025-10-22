@@ -17,6 +17,12 @@ interface ContributionWeek {
 
 const GITHUB_GRAPHQL_API = "https://api.github.com/graphql";
 
+interface GitHubError {
+  type?: string;
+  path?: string[];
+  message?: string;
+}
+
 const CONTRIBUTIONS_QUERY = `
   query($userName:String!, $from:DateTime!, $to:DateTime!) {
     user(login: $userName) {
@@ -133,7 +139,7 @@ export async function GET(request: NextRequest) {
 
       // Check if it's a user not found error
       const isUserNotFound = data.errors.some(
-        (error: any) =>
+        (error: GitHubError) =>
           error.type === "NOT_FOUND" && error.path?.includes("user")
       );
 
