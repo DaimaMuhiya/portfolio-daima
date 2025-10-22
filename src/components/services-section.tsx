@@ -60,7 +60,7 @@ export default function ServicesSection() {
   };
   return (
     <section className="max-w-[1200px] mx-auto px-5 mb-20">
-      <div className="bg-[#121212] border border-[#2F343C] rounded-xl p-10">
+      <div className="bg-[#121212] rounded-xl p-10">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-1 mb-3">
             <div className="w-[6px] h-[6px] bg-[#057A55] rounded-full" />

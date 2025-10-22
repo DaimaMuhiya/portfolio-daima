@@ -23,7 +23,7 @@ export default function GitJournalSection() {
         variants={container}
       >
         <motion.div
-          className="flex-1 bg-[#121212] border border-[#1F2A37] rounded-xl p-10"
+          className="flex-1 bg-[#121212] rounded-xl p-10"
           variants={fadeInUp}
         >
           <motion.div
@@ -56,7 +56,7 @@ export default function GitJournalSection() {
 
           {/* Git Commit Messages */}
           <motion.div
-            className="mt-8 bg-[#0D0D0D] border border-[#1F2228] rounded-xl p-6"
+            className="mt-8 bg-[#0D0D0D] border border-[#1F2A37] rounded-xl p-6"
             variants={fadeInUp}
           >
             <div className="flex items-center justify-between mb-6">

@@ -69,7 +69,7 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
 
   if (loading) {
     return (
-      <div className="bg-[#121212] border border-[#1F2228] rounded-xl p-6 flex items-center justify-center min-h-[200px]">
+      <div className="bg-[#121212] border border-[#1F2A37] rounded-xl p-6 flex items-center justify-center min-h-[200px]">
         <div className="flex flex-col items-center gap-3">
           <Loader2 className="w-8 h-8 text-[#057A55] animate-spin" />
           <p className="text-[#6B7280] text-sm font-mono">
@@ -82,7 +82,7 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
 
   if (error) {
     return (
-      <div className="bg-[#121212] border border-[#1F2228] rounded-xl p-6">
+      <div className="bg-[#121212] border border-[#1F2A37] rounded-xl p-6">
         <div className="flex flex-col items-center gap-4 text-center">
           <p className="text-[#F98080] text-sm font-mono">
             Erreur lors du chargement des contributions
@@ -102,7 +102,7 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
 
   if (!data || !data.weeks || data.weeks.length === 0) {
     return (
-      <div className="bg-[#121212] border border-[#1F2228] rounded-xl p-6">
+      <div className="bg-[#121212] border border-[#1F2A37] rounded-xl p-6">
         <p className="text-[#6B7280] text-sm font-mono text-center">
           Aucune donnée de contribution disponible
         </p>
@@ -111,7 +111,7 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
   }
 
   return (
-    <div className="bg-[#121212] border border-[#1F2228] rounded-xl p-6 overflow-x-auto">
+    <div className="bg-[#121212] border border-[#1F2A37] rounded-xl p-6 overflow-x-auto">
       <div className="min-w-[800px]">
         {/* Badge du total des contributions */}
         <div className="mb-4 inline-flex items-center gap-2 flex-wrap">
