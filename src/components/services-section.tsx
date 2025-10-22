@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Globe,
   Database,
@@ -72,7 +74,15 @@ export default function ServicesSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {services.map((service, index) => (
-            <div key={index} className="border border-[#1F2A37] rounded-xl p-6">
+            <motion.div
+              key={index}
+              className="border border-[#1F2A37] rounded-xl p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              whileHover={{ y: -5, borderColor: "#057A55" }}
+            >
               <service.icon className="w-6 h-6 text-[#6B7280] mb-3" />
               <h3 className="text-xl font-medium text-white mb-2 font-mono">
                 {service.title}
@@ -80,7 +90,7 @@ export default function ServicesSection() {
               <p className="text-[#6B7280] text-sm font-mono">
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="text-center">
