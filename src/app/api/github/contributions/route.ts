@@ -11,9 +11,9 @@ interface ContributionDay {
     | "FOURTH_QUARTILE";
 }
 
-// interface ContributionWeek {
-//   contributionDays: ContributionDay[];
-// }
+interface ContributionWeek {
+  contributionDays: ContributionDay[];
+}
 
 const GITHUB_GRAPHQL_API = "https://api.github.com/graphql";
 
@@ -35,6 +35,45 @@ const CONTRIBUTIONS_QUERY = `
     }
   }
 `;
+
+function generateDemoContributions() {
+  const weeks: ContributionWeek[] = [];
+  const today = new Date();
+
+  for (let weekIndex = 0; weekIndex < 53; weekIndex++) {
+    const week = {
+      contributionDays: [] as ContributionDay[],
+    };
+
+    for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
+      const date = new Date(today);
+      date.setDate(date.getDate() - ((52 - weekIndex) * 7 + (6 - dayIndex)));
+
+      const randomCount = Math.floor(Math.random() * 15);
+      let level:
+        | "NONE"
+        | "FIRST_QUARTILE"
+        | "SECOND_QUARTILE"
+        | "THIRD_QUARTILE"
+        | "FOURTH_QUARTILE" = "NONE";
+
+      if (randomCount > 10) level = "FOURTH_QUARTILE";
+      else if (randomCount > 7) level = "THIRD_QUARTILE";
+      else if (randomCount > 4) level = "SECOND_QUARTILE";
+      else if (randomCount > 0) level = "FIRST_QUARTILE";
+
+      week.contributionDays.push({
+        date: date.toISOString().split("T")[0],
+        contributionCount: randomCount,
+        contributionLevel: level,
+      });
+    }
+
+    weeks.push(week);
+  }
+
+  return weeks;
+}
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -82,15 +121,36 @@ export async function GET(request: NextRequest) {
     });
 
     if (!response.ok) {
-      throw new Error(`GitHub API a répondu avec le statut: ${response.status}`);
+      throw new Error(
+        `GitHub API a répondu avec le statut: ${response.status}`
+      );
     }
 
     const data = await response.json();
 
     if (data.errors) {
       console.error("Erreurs GitHub API:", data.errors);
+
+      // Check if it's a user not found error
+      const isUserNotFound = data.errors.some(
+        (error: any) =>
+          error.type === "NOT_FOUND" && error.path?.includes("user")
+      );
+
+      if (isUserNotFound) {
+        // Return demo data instead of error
+        return NextResponse.json({
+          totalContributions: 847,
+          weeks: generateDemoContributions(),
+          isDemoMode: true,
+        });
+      }
+
       return NextResponse.json(
-        { error: "Échec de la récupération des données GitHub", details: data.errors },
+        {
+          error: "Échec de la récupération des données GitHub",
+          details: data.errors,
+        },
         { status: 500 }
       );
     }
@@ -100,7 +160,10 @@ export async function GET(request: NextRequest) {
 
     if (!contributionsData) {
       return NextResponse.json(
-        { error: "Utilisateur non trouvé ou aucune donnée de contribution disponible" },
+        {
+          error:
+            "Utilisateur non trouvé ou aucune donnée de contribution disponible",
+        },
         { status: 404 }
       );
     }
@@ -110,7 +173,10 @@ export async function GET(request: NextRequest) {
       weeks: contributionsData.weeks,
     });
   } catch (error) {
-    console.error("Erreur lors de la récupération des contributions GitHub:", error);
+    console.error(
+      "Erreur lors de la récupération des contributions GitHub:",
+      error
+    );
     return NextResponse.json(
       {
         error: "Échec de la récupération des contributions",

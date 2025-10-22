@@ -11,12 +11,15 @@ interface Repository {
   stars: number;
   language: string;
   languageColor: string;
+  commitMessage: string;
+  commitDate: string;
 }
 
 interface UseGitHubRepositoriesReturn {
   repositories: Repository[];
   loading: boolean;
   error: string | null;
+  isDemoMode: boolean;
   refetch: () => void;
 }
 
@@ -26,6 +29,7 @@ export function useGitHubRepositories(
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isDemoMode, setIsDemoMode] = useState(false);
 
   const fetchRepositories = useCallback(async () => {
     try {
@@ -37,12 +41,19 @@ export function useGitHubRepositories(
       );
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to fetch repositories");
+        let errorMessage = "Failed to fetch repositories";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          // If JSON parsing fails, use default error message
+        }
+        throw new Error(errorMessage);
       }
 
       const result = await response.json();
       setRepositories(result.repositories);
+      setIsDemoMode(result.isDemoMode || false);
     } catch (err) {
       console.error("Error fetching GitHub repositories:", err);
       setError(err instanceof Error ? err.message : "An error occurred");
@@ -61,6 +72,7 @@ export function useGitHubRepositories(
     repositories,
     loading,
     error,
+    isDemoMode,
     refetch: fetchRepositories,
   };
 }

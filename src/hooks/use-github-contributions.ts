@@ -46,8 +46,14 @@ export function useGitHubContributions(
       );
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to fetch contributions");
+        let errorMessage = "Failed to fetch contributions";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          // If JSON parsing fails, use default error message
+        }
+        throw new Error(errorMessage);
       }
 
       const result = await response.json();
