@@ -3,7 +3,8 @@
 import { Code2 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { lazy, Suspense, useState } from "react";
 import {
   fadeInLeft,
   fadeInRight,
@@ -13,8 +14,11 @@ import {
 } from "@/lib/motionVariants";
 
 const MotionImage = motion(Image);
+const AnimatedText = lazy(() => import("./animations/animated-text"));
 
 export default function HeroSection() {
+  const [showAlternateText, setShowAlternateText] = useState(false);
+
   return (
     <section id="about" className="max-w-[1200px] mx-auto px-5 mb-20">
       <motion.div
@@ -58,14 +62,67 @@ export default function HeroSection() {
             >
               &lt;span&gt; Salut! Je suis Daima MUHIYA &lt;/span&gt;
             </motion.p>
-            <motion.h1
-              className="text-4xl lg:text-[40px] font-medium text-white leading-tight mb-6 font-mono"
+            <motion.div
+              className="text-4xl lg:text-[40px] font-medium leading-tight mb-6 font-mono"
               variants={fadeInUp}
             >
-              {/* Développeur Web & Mobile &#123;Full Stack&#125;_ */}
-              Ingénieur <br />
-              <span className="text-[#057A55E5]">&#123;Logiciel&#125;</span>_
-            </motion.h1>
+              <AnimatePresence mode="wait">
+                {!showAlternateText ? (
+                  <motion.div
+                    key="main-text"
+                    initial={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="text-white mb-2">Ingénieur</p>
+                    <div className="bg-gradient-to-r from-[#057A55] to-[#09E09C] bg-clip-text text-transparent">
+                      <Suspense
+                        fallback={
+                          <span className="text-[#057A55E5]">
+                            &#123;Logiciel&#125;_
+                          </span>
+                        }
+                      >
+                        <AnimatedText
+                          text="{Logiciel}_"
+                          alternateText="Samouraï_x88_"
+                          el="h1"
+                          className="text-4xl lg:text-[40px]"
+                          blinkCount={5}
+                          blinkSpeed={500}
+                          onCycleChange={setShowAlternateText}
+                        />
+                      </Suspense>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="alternate-text"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-gradient-to-r from-[#057A55] to-[#09E09C] bg-clip-text text-transparent"
+                  >
+                    <Suspense
+                      fallback={
+                        <span className="text-[#057A55E5]">Samouraï_x88_</span>
+                      }
+                    >
+                      <AnimatedText
+                        text="Samouraï_x88_"
+                        alternateText="{Logiciel}_"
+                        el="h1"
+                        className="text-4xl lg:text-[40px]"
+                        blinkCount={5}
+                        blinkSpeed={500}
+                        onCycleChange={setShowAlternateText}
+                      />
+                    </Suspense>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
             <motion.p
               className="text-[#F98080] text-base leading-relaxed font-mono"
               variants={fadeInUp}
