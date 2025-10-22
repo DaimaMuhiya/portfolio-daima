@@ -81,15 +81,8 @@ export default function Home() {
   };
 
   const handleViewAllProjects = () => {
-    // Fonction fictive permettant d'afficher tous les projets.
-    // Cela pourrait permettre d'accéder à une page de projets ou d'afficher une galerie de projets.
-    console.log("Viewing all projects");
-    alert(
-      `Opening Projects Gallery\n\nThis would show all ${
-        Math.floor(Math.random() * 20) + 15
-      } projects including:\n• Web Applications\n• Mobile Apps\n• API Services\n• Machine Learning Projects\n• E-commerce Solutions\n• And more...`
-    );
-  };
+    window.location.href = "/projects"
+  }
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
