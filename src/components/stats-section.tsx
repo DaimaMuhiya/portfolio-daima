@@ -6,7 +6,7 @@ import { container, scaleIn } from "@/lib/motionVariants";
 
 const stats = [
   { icon: Calendar, value: "5", label: "Années d'expérience" },
-  { icon: Monitor, value: "26", label: "Projets réalisés" },
+  { icon: Monitor, value: "36", label: "Projets réalisés" },
   // { icon: Smile, value: "10", label: "Clients satisfaits" },
   { icon: Award, value: "2", label: "Certifications" },
 ];
