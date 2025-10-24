@@ -111,9 +111,8 @@ export const projects: Project[] = [
       "OptSolution est une solution web complète permettant la gestion intégrée des inscriptions, paiements, résultats et documents académiques. Conçue pour moderniser les établissements universitaires congolais, elle intègre des fonctionnalités de suivi en temps réel, génération sécurisée de documents (QR Code) et interconnexion avec les services bancaires et institutionnels.",
     image: "/projects/optsolution.jpg",
     technologies: [
-      "Next.js",
+      "React.js",
       "TypeScript",
-      "Tailwind CSS",
       "PostgreSQL",
     ],
     date: "2024-11",

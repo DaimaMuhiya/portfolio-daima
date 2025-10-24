@@ -61,7 +61,7 @@ export default function ProjectsSection({
               Mes travaux récents
             </h2>
           </div>
-          <Link href="/projects">
+          {/* <Link href="/projects">
             <motion.button
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#057A55] hover:bg-[#046545] text-white font-mono rounded-lg transition-colors"
               variants={buttonVariants}
@@ -71,7 +71,7 @@ export default function ProjectsSection({
               <Eye className="w-4 h-4" />
               Voir tous les projets
             </motion.button>
-          </Link>
+          </Link> */}
         </motion.div>
 
         {mainProject && (
@@ -117,9 +117,9 @@ export default function ProjectsSection({
 
               <div className="space-y-6">
                 {[
-                  { label: "Catégorie", value: mainProject.category },
+                  { label: "Catégorie :", value: mainProject.category },
                   {
-                    label: "Date",
+                    label: "Date :",
                     value: new Date(mainProject.date).toLocaleDateString(
                       "fr-FR",
                       {
@@ -129,7 +129,7 @@ export default function ProjectsSection({
                     ),
                   },
                   {
-                    label: "Technologies",
+                    label: "Technologies :",
                     value: mainProject.technologies.slice(0, 4).join(", "),
                   },
                 ].map((info, index) => (

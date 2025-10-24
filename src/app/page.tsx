@@ -8,7 +8,7 @@ import StatsSection from "@/components/stats-section";
 import GitJournalSection from "@/components/githubJournal-section";
 import ServicesSection from "@/components/services-section";
 import ExperienceSection from "@/components/experience-section";
-import EducationSection from "@/components/education-section";
+// import EducationSection from "@/components/education-section";
 import ProjectsSection from "@/components/projects-section";
 import SkillsSection from "@/components/skills-section";
 import ContactForm from "@/components/contact-form";
@@ -103,7 +103,7 @@ export default function Home() {
         <GitJournalSection />
         <ServicesSection />
         <ExperienceSection onResumeDownload={handleResumeDownload} />
-        <EducationSection />
+        {/* <EducationSection /> */}
         <ProjectsSection
           onViewProject={handleViewProject}
           onViewAllProjects={handleViewAllProjects}
