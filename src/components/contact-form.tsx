@@ -1,10 +1,9 @@
 "use client";
 
-import type React from "react";
-
+import React from "react";
 import { Send, Phone, Mail } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   container,
   fadeInUp,
@@ -13,28 +12,96 @@ import {
   scaleIn,
 } from "@/lib/motionVariants";
 
-interface ContactFormProps {
-  formData: {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-  };
-  isSubmitting: boolean;
-  submitStatus: "idle" | "success" | "error";
-  onInputChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  onSubmit: (e: React.FormEvent) => void;
+// Variable d'environnement pour l'endpoint de Formspree
+const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_URL as string;
+
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
 }
 
-export default function ContactForm({
-  formData,
-  isSubmitting,
-  submitStatus,
-  onInputChange,
-  onSubmit,
-}: ContactFormProps) {
+export default function ContactForm() {
+  // États locaux pour gérer le formulaire
+  const [formData, setFormData] = React.useState<FormData>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = React.useState<string>("");
+
+  // Gestion des changements
+  const onInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Soumission vers Formspree
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!FORMSPREE_ENDPOINT) {
+      console.error("Formspree endpoint manquant !");
+      setSubmitStatus("error");
+      setErrorMessage("Configuration du formulaire invalide.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        // Réinitialiser le formulaire
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        const result = await response.json().catch(() => ({}));
+        setSubmitStatus("error");
+        setErrorMessage(result.error || "Erreur lors de l'envoi.");
+      }
+    } catch (error) {
+      console.error("Erreur réseau:", error);
+      setSubmitStatus("error");
+      setErrorMessage("Erreur réseau. Veuillez réessayer.");
+    } finally {
+      setIsSubmitting(false);
+      // Masquer le statut après 5 secondes
+      setTimeout(() => {
+        setSubmitStatus("idle");
+        setErrorMessage("");
+      }, 5000);
+    }
+  };
+
   return (
     <section id="contacts" className="max-w-[1200px] mx-auto px-5 mb-20">
       <motion.div
@@ -58,14 +125,12 @@ export default function ContactForm({
             rapidement.
           </p>
         </motion.div>
-        {/* Layout: Contact Info (à gauche) + Form (à droite) */}
+
         <div className="flex flex-col lg:flex-row gap-10 items-start">
-          {/* Left Side - Contact Info */}
           <motion.div
             className="w-full lg:w-auto lg:min-w-[300px] flex flex-col items-center lg:items-start gap-6"
             variants={fadeInLeft}
           >
-            {/* Profile Image */}
             <motion.div
               className="relative"
               variants={scaleIn}
@@ -87,7 +152,6 @@ export default function ContactForm({
               ></motion.div>
             </motion.div>
 
-            {/* Contact Details */}
             <motion.div className="space-y-2 w-full" variants={fadeInUp}>
               <motion.a
                 href="https://wa.me/243995825417"
@@ -130,7 +194,6 @@ export default function ContactForm({
               </motion.a>
             </motion.div>
 
-            {/* Availability Badge */}
             <motion.div
               className="inline-flex items-center gap-2 px-4 py-2 bg-[#057A55] bg-opacity-10 border border-[#057A55] rounded-lg"
               variants={scaleIn}
@@ -143,7 +206,6 @@ export default function ContactForm({
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Contact Form */}
           <motion.div className="flex-1 w-full" variants={fadeInRight}>
             <form onSubmit={onSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -161,7 +223,8 @@ export default function ContactForm({
                     value={formData.name}
                     onChange={onInputChange}
                     required
-                    className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1F2A37] rounded-lg text-white font-mono placeholder-[#6B7280] focus:border-[#057A55] focus:outline-none transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1F2A37] rounded-lg text-white font-mono placeholder-[#6B7280] focus:border-[#057A55] focus:outline-none transition-colors disabled:opacity-50"
                     placeholder="Votre nom complet"
                   />
                 </div>
@@ -179,7 +242,8 @@ export default function ContactForm({
                     value={formData.email}
                     onChange={onInputChange}
                     required
-                    className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1F2A37] rounded-lg text-white font-mono placeholder-[#6B7280] focus:border-[#057A55] focus:outline-none transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1F2A37] rounded-lg text-white font-mono placeholder-[#6B7280] focus:border-[#057A55] focus:outline-none transition-colors disabled:opacity-50"
                     placeholder="email@exemple.com"
                   />
                 </div>
@@ -198,7 +262,8 @@ export default function ContactForm({
                   value={formData.subject}
                   onChange={onInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1F2A37] rounded-lg text-white font-mono placeholder-[#6B7280] focus:border-[#057A55] focus:outline-none transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1F2A37] rounded-lg text-white font-mono placeholder-[#6B7280] focus:border-[#057A55] focus:outline-none transition-colors disabled:opacity-50"
                   placeholder="De quoi s'agit-il ?"
                 />
               </div>
@@ -215,18 +280,43 @@ export default function ContactForm({
                   value={formData.message}
                   onChange={onInputChange}
                   required
+                  disabled={isSubmitting}
                   rows={6}
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1F2A37] rounded-lg text-white font-mono placeholder-[#6B7280] focus:border-[#057A55] focus:outline-none transition-colors resize-vertical"
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1F2A37] rounded-lg text-white font-mono placeholder-[#6B7280] focus:border-[#057A55] focus:outline-none transition-colors resize-vertical disabled:opacity-50"
                   placeholder="Parlez-moi de votre projet ou dites simplement bonjour..."
                 />
               </div>
-              {submitStatus === "success" && (
-                <div className="p-4 bg-[#057A55] bg-opacity-20 border border-[#057A55] rounded-lg">
-                  <p className="text-[#84E1BC] text-sm font-mono">
-                    ✓ Message envoyé avec succès ! Je vous répondrai bientôt.
-                  </p>
-                </div>
-              )}
+
+              {/* Messages de statut */}
+              <AnimatePresence mode="wait">
+                {submitStatus === "success" && (
+                  <motion.div
+                    className="p-4 bg-[#057A55] bg-opacity-20 border border-[#057A55] rounded-lg"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    animate="show"
+                    exit="hidden"
+                  >
+                    <p className="text-[#84E1BC] text-sm font-mono">
+                      ✓ Message envoyé avec succès ! Je vous répondrai bientôt.
+                    </p>
+                  </motion.div>
+                )}
+                {submitStatus === "error" && (
+                  <motion.div
+                    className="p-4 bg-[#EF4444] bg-opacity-20 border border-[#EF4444] rounded-lg"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    animate="show"
+                    exit="hidden"
+                  >
+                    <p className="text-[#F98080] text-sm font-mono">
+                      ✗ {errorMessage || "Erreur lors de l'envoi."}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <motion.div
                 className="text-center md:text-left"
                 initial={{ opacity: 0, y: 20 }}

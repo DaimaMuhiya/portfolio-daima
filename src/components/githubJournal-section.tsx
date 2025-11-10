@@ -124,11 +124,8 @@ export default function GitJournalSection() {
                         style={{ backgroundColor: repo.languageColor }}
                       ></div>
                       <div className="flex-1 min-w-0">
-                        <a
-                          href={repo.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs leading-tight font-mono hover:underline transition-all block group"
+                        <div
+                          className="text-xs leading-tight font-mono transition-all block group"
                           style={{ color: repo.languageColor }}
                         >
                           <span className="block font-medium">
@@ -137,7 +134,7 @@ export default function GitJournalSection() {
                           <span className="block text-[#6B7280] mt-1 italic">
                             &ldquo;{repo.commitMessage}&rdquo;
                           </span>
-                        </a>
+                        </div>
                       </div>
                     </motion.div>
                   ))}
