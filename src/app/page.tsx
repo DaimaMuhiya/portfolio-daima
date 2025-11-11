@@ -13,7 +13,7 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   const handleResumeDownload = () => {
-    window.open("/documents/Daima_Muhiya.pdf", "_blank");
+    window.open("/documents/Daima_Muhiya_CV.pdf", "_blank");
   };
 
   // const handleResumeDownload = () => {
