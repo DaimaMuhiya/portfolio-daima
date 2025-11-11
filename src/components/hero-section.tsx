@@ -69,7 +69,7 @@ export default function HeroSection() {
               className="text-[#F98080] text-base mb-3 font-mono"
               variants={fadeInUp}
             >
-              &lt;span&gt; Salut! Je suis Daima MUHIYA &lt;/span&gt;
+              Salut ! Je suis Daima MUHIYA,
             </motion.p>
             <motion.div
               className="text-4xl lg:text-[40px] font-medium leading-tight mb-6 font-mono"
@@ -137,10 +137,8 @@ export default function HeroSection() {
             <motion.p
               className="text-[#F98080] text-base leading-relaxed font-mono"
               variants={fadeInUp}
-            >
-              &lt;p&gt; Fort d&apos;une expertise dans les technologies de
+            >Fort d&apos;une expertise dans les technologies de
               pointe, je fournis des solutions à la fois innovantes et robustes.
-              &lt;/p&gt;
             </motion.p>
           </div>
           <motion.div

@@ -95,7 +95,7 @@ export default function ServicesSection() {
         </div>
         <div className="text-center">
           <p className="text-[#6B7280] text-sm font-mono">
-            Envie de vous lancer dans de nouveaux projets et collaborations ?
+            Besoin de vous lancer dans de nouveaux projets et collaborations ?
             Parlons de vos idées.{" "}
             <motion.span
               className="text-[#057A55] cursor-pointer underline underline-offset-4 decoration"
