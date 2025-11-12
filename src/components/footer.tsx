@@ -80,10 +80,13 @@ export default function Footer() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            Daima MUHIYA
+            Daima Muhiya
           </motion.span>
         </motion.div>
-        <motion.div className="flex items-center gap-6" variants={itemVariants}>
+        <motion.div
+          className="flex items-center gap-4 md:gap-6"
+          variants={itemVariants}
+        >
           <motion.a
             href="https://www.facebook.com/daima.muhiya"
             target="_blank"

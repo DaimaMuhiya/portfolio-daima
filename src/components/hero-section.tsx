@@ -69,7 +69,7 @@ export default function HeroSection() {
               className="text-[#F98080] text-base mb-3 font-mono"
               variants={fadeInUp}
             >
-              Salut ! Je suis Daima MUHIYA,
+              Salut ! Je suis DAIMA MUHIYA,
             </motion.p>
             <motion.div
               className="text-4xl lg:text-[40px] font-medium leading-tight mb-6 font-mono"

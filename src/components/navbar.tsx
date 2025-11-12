@@ -86,7 +86,7 @@ NavbarProps) {
         </motion.button>
       </div>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4 md:gap-6">
         <motion.a
           href="https://www.facebook.com/daima.muhiya"
           target="_blank"

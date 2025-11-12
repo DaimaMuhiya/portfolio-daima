@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Daima MUHIYA",
-  description: "Software Engeneer",
+  title: "DAIMA MUHIYA",
+  description: "Ingénieur Logiciel",
 };
 
 export default function RootLayout({

@@ -15,7 +15,7 @@ const MotionImage = motion(Image);
 
 const jobs = [
   {
-    company: "Uzima SARL",
+    company: "Uzima Technology",
     period: "Septembre 2025 - Aujourd'hui",
     icon: "/icons/jobs/uzima_logo.svg",
   },
