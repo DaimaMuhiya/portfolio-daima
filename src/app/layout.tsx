@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DAIMA MUHIYA",
-  description: "Ingénieur Logiciel",
+  title: "DAIMA MUHIYA - Ingénieur Logiciel",
+  description:
+    "Conception et développement d’expériences numériques modernes et performantes.",
 };
 
 export default function RootLayout({
