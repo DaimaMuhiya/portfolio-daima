@@ -107,7 +107,7 @@ export default function ExperienceSection({
                   alt={item.company}
                   width={48}
                   height={48}
-                  className="object-contain"
+                  className="object-contain rounded-xl"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 />
