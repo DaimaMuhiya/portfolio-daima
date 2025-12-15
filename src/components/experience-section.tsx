@@ -15,7 +15,7 @@ const MotionImage = motion(Image);
 
 const jobs = [
   {
-    company: "Cabinet Malabar SARLU",
+    company: "Malabar Research & Development",
     period: "Décembre 2025 - Aujourd'hui",
     icon: "/icons/jobs/Logo-Malabar.webp",
   },

@@ -44,7 +44,7 @@ export default function HeroSection() {
             transition={{ duration: 0.3 }}
           >
             <ImageWithFallback
-              src="/profile/daima_muhiya.png"
+              src="/profile/daima_m.png"
               alt="daima muhiya"
               className="rounded-full w-full h-full object-cover"
             />
