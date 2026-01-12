@@ -41,7 +41,7 @@ const jobs = [
   },
   {
     company: "Développeur Freelance",
-    period: "Depuis 2020",
+    period: "Depuis 2020 - Aujourd'hui",
     icon: "/icons/jobs/freelancer.svg",
   },
 ];

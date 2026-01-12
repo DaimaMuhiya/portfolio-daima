@@ -56,7 +56,7 @@ export default function ProjectsPage() {
               className="inline-flex items-center gap-2 text-[#6B7280] hover:text-[#057A55] transition-colors font-mono text-sm"
             >
               <ArrowLeft className="w-4 h-4" />
-              Retour au portfolio
+              Retour
             </Link>
           </div>
 
