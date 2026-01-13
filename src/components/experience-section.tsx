@@ -19,11 +19,11 @@ const jobs = [
     period: "Décembre 2025 - Aujourd'hui",
     icon: "/icons/jobs/Logo-Malabar.webp",
   },
-  {
-    company: "Uzima Technology",
-    period: "Septembre 2025 - Aujourd'hui",
-    icon: "/icons/jobs/uzima_logo.svg",
-  },
+  // {
+  //   company: "Uzima Technology",
+  //   period: "Septembre 2025 - Aujourd'hui",
+  //   icon: "/icons/jobs/uzima_logo.svg",
+  // },
   {
     company: "EnyWork SARL",
     period: "Novembre 2024 - Septembre 2025",
