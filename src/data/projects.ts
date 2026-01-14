@@ -23,7 +23,7 @@ export const techStack: Record<
 > = {
   "Next.js": {
     icon: "/icons/skills/Next.js.svg",
-    color: "#000000",
+    color: "#2a2a2a",
     name: "Next.js",
   },
   TypeScript: {
@@ -99,6 +99,11 @@ export const techStack: Record<
   },
   "Web Audio API": { icon: "🎵", color: "#FF6B6B", name: "Web Audio" },
   IndexedDB: { icon: "💾", color: "#FFA500", name: "IndexedDB" },
+  Zustand: {
+    icon: "/icons/skills/zustand.svg",
+    color: "#000000",
+    name: "zustand",
+  },
 };
 
 export const projects: Project[] = [
@@ -110,11 +115,7 @@ export const projects: Project[] = [
     longDescription:
       "OptSolution est une solution web complète permettant la gestion intégrée des inscriptions, paiements, résultats et documents académiques. Conçue pour moderniser les établissements universitaires congolais, elle intègre des fonctionnalités de suivi en temps réel, génération sécurisée de documents (QR Code) et interconnexion avec les services bancaires et institutionnels.",
     image: "/projects/optsolution.jpg",
-    technologies: [
-      "React.js",
-      "TypeScript",
-      "PostgreSQL",
-    ],
+    technologies: ["React.js", "TypeScript", "PostgreSQL"],
     date: "2024-11",
     category: "Système",
     githubUrl: "",
@@ -129,16 +130,41 @@ export const projects: Project[] = [
     longDescription:
       "Plateforme web mise en place pour EALE Express Fret, permettant la gestion complète des expéditions (air, mer), le suivi en temps réel, la facturation en ligne ainsi que l’administration des clients et des documents logistiques.",
     image: "/projects/eale_express.jpg",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Base de données",
-    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Base de données"],
     date: "2024-XX",
     category: "Système",
     githubUrl: "",
     liveUrl: "https://www.eale-express-fret.com/",
+    featured: true,
+  },
+  {
+    id: "connecte-ta-boite",
+    title: "Plateforme - Connecte ta boite",
+    description:
+      "Programme d'inclusion et de transformation digitale pour les MPME congolaises",
+    longDescription:
+      "Connecte ta Boîte est un programme conçu par Malabar Research & Development pour accompagner les MPME congolaises dans leur passage au numérique, de manière simple, progressive et adaptée aux réalités locales.",
+    image: "/projects/thermometre-num.jpeg",
+    technologies: ["Next.js", "PostgreSQL", "Zustand", "Tailwind CSS"],
+    date: "2024-06",
+    category: "Web",
+    // githubUrl: "https://github.com/DaimaMuhiya/task-manager",
+    liveUrl: "https://thermometre.connectetaboite.cd",
+    featured: true,
+  },
+  {
+    id: "connecte-ta-boite-website",
+    title: "Site web - Connecte ta boite",
+    description:
+      "Site web présentant la plateforme Connecte ta boite et ses services",
+    longDescription:
+      "Connecte ta Boîte est un programme conçu par Malabar Research & Development pour accompagner les MPME congolaises dans leur passage au numérique, de manière simple, progressive et adaptée aux réalités locales.",
+    image: "/projects/connecte-ta-boite.jpeg",
+    technologies: ["Next.js", "PostgreSQL", "Tailwind CSS"],
+    date: "2024-06",
+    category: "Web",
+    // githubUrl: "https://github.com/DaimaMuhiya/task-manager",
+    liveUrl: "https://www.connectetaboite.cd",
     featured: true,
   },
   {
@@ -281,12 +307,7 @@ export const projects: Project[] = [
     longDescription:
       "Cette solution permet la gestion électronique du courrier entrant et sortant au sein d’une institution publique ou privée. Elle offre des fonctionnalités de suivi des correspondances, de classification des documents, d’archivage numérique, de recherche avancée et de gestion des utilisateurs avec différents niveaux d’accès. L’application vise à améliorer la productivité, la traçabilité et la dématérialisation des échanges administratifs.",
     image: "/projects/gec.jpg",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "PostgreSQL",
-    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
     date: "2024-06",
     category: "Système",
     githubUrl: "",

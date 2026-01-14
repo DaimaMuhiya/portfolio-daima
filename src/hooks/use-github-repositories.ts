@@ -41,7 +41,7 @@ export function useGitHubRepositories(
       );
 
       if (!response.ok) {
-        let errorMessage = "Failed to fetch repositories";
+        let errorMessage = "Erreur lors du chargement des commits";
         try {
           const errorData = await response.json();
           errorMessage = errorData.error || errorMessage;
